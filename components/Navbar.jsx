@@ -24,13 +24,13 @@ import React, { useState, useEffect } from "react";
 export default function Navbar() {
   const [bgColor, setBgColor] = useState("");
   const [bgColor2, setBgColor2] = useState("");
-  const [color, setColor] = useState("#c1b1db");
+  const [color, setColor] = useState("#111010");
   const [isShadow, setIsShadow] = useState("");
 
   const listenScrollEvent = (event) => {
     if (window.scrollY < 250) {
       return (
-        setColor("#c5a9f1"),
+        setColor("#111111"),
         setIsShadow(""),
         setBgColor("transparent"),
         setBgColor2("transparent")
