@@ -25,7 +25,7 @@ export default function Home() {
     <Layout>
       <Notebook />
       <Flex justify="center">
-        <Box px="50px" w="600px">
+        <Box px="50px" w="700px">
           <Heading mb={0}>Edgar Santiago</Heading>
           <Text mb={4}>Criador Digital ( Ciêntista / Artista / Dev )</Text>
 
@@ -37,7 +37,7 @@ export default function Home() {
           >
             Sobre mim
           </Heading>
-          <Text mt={2} mb={5}>
+          <Text style={{ textIndent: "1em" }} mt={2} mb={5}>
             Tenho 21 anos e estudo desenvolvimento web há 6 anos, atualmente
             estou cursando o último semestre de Ciência da Computação. Sou
             Especializado na criação de sites profissionais, que funcionam em
@@ -52,7 +52,7 @@ export default function Home() {
           >
             Bio
           </Heading>
-          <UnorderedList mt={2}>
+          <UnorderedList mt={2} mb={5}>
             <ListItem>2001 Nasci em Guarujá (SP), Brasil</ListItem>
             <ListItem>
               2019 Iniciei Ciência da computação na UNIP - universidade
@@ -61,6 +61,27 @@ export default function Home() {
             <ListItem>2020 Trabalhando como freelancer</ListItem>
             <ListItem>2022 Desenvolvedor na ISTV - emissora de TV</ListItem>
           </UnorderedList>
+
+          <Heading
+            display="inline"
+            fontSize="xl"
+            borderBottom="3px  solid"
+            borderColor="red.400"
+          >
+            I{" "}
+            <Text
+              display="inline"
+              bgGradient="linear(to-l, #65b7e7, #e71919)"
+              bgClip="text"
+              fontSize="3xl"
+              fontWeight="extrabold"
+            >
+              ♥
+            </Text>
+          </Heading>
+          <Text mt={2} mb={5} style={{ textIndent: "1em" }}>
+            Desenvolvimento web, Música, e games.
+          </Text>
         </Box>
       </Flex>
 
