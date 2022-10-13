@@ -173,7 +173,7 @@ function Content() {
   ]);
   return images.map((img, index) => (
     <Block key={index} factor={1} offset={index}>
-      <Image key={index} index={index} img={img} />
+      <Image alt="test" key={index} index={index} img={img} />
     </Block>
   ));
 }
