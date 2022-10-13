@@ -10,7 +10,13 @@ const Main = ({ children, router }) => {
     <Box as="main">
       <Navbar />
       <Banner />
-      <Container py="0px" px="0px" maxW="100%" h="100%">
+      <Container
+        py="0px"
+        px="0px"
+        maxW="100%"
+        h="100%"
+        bg={useColorModeValue("#fafafa", "#111111")}
+      >
         {children}
       </Container>
       <Footer />

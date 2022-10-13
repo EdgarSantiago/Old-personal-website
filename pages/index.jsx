@@ -11,7 +11,6 @@ import {
 } from "@chakra-ui/react";
 import ParallaxText, { AnimeRockersParallax } from "../components/ParallaxTxt";
 import Notebook from "../components/Notebook";
-import Gallery from "../components/gallery/Galery";
 
 import {
   List,
@@ -20,6 +19,7 @@ import {
   OrderedList,
   UnorderedList,
 } from "@chakra-ui/react";
+import Street from "../components/Street/Street";
 export default function Home() {
   return (
     <Layout>
@@ -85,8 +85,31 @@ export default function Home() {
         </Box>
       </Flex>
 
-      <Box my="100px">
-        <Gallery />
+      <Box position="relative" h="80vh">
+        <Box
+          zIndex="999"
+          position="absolute"
+          m="auto"
+          top="0"
+          bottom="0"
+          right="0"
+          left="0"
+          height="200px"
+          width="100%"
+          backdropFilter="auto"
+          backdropBlur="2px"
+          textAlign="center"
+          px={5}
+          py={2}
+        >
+          <Heading fontSize="2xl">
+            Qualquer um pode escrever um código que o computador entenda. Bons
+            programadores escrevem códigos que os humanos entendam.
+          </Heading>
+        </Box>
+        <Box h="100%">
+          <Street />
+        </Box>
       </Box>
     </Layout>
   );

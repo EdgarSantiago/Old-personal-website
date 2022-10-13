@@ -59,7 +59,7 @@ export default function Navbar() {
         top={0}
         w="100%"
         zIndex={2}
-        px={["5px", "10px", "20px", "300px"]}
+        px={["0px", "10px", "20px", "300px"]}
       >
         <Flex
           minWidth="max-content"
@@ -110,12 +110,12 @@ export default function Navbar() {
                   Sobre mim
                 </Button>
               </Link>
-              <ThemeToggleButton />
             </HStack>
           </Show>
+          <Spacer />
+          <ThemeToggleButton />
 
           <Show below="1000px">
-            <Spacer />
             <Box>
               <Menu>
                 <MenuButton as={Button} px="10px">
