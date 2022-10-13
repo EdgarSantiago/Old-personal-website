@@ -5,7 +5,7 @@ import {
   useColorMode,
   useColorModeValue,
 } from "@chakra-ui/react";
-import { BsMoonStarsFill, BsFillMoonFill } from "react-icons/bs";
+import { BsMoonStarsFill, BsFillMoonFill, BsSunriseFill } from "react-icons/bs";
 
 const ThemeToggleButton = ({ color }) => {
   const { toggleColorMode } = useColorMode();
@@ -13,10 +13,10 @@ const ThemeToggleButton = ({ color }) => {
   return (
     <AnimatePresence moe="wait" initial={false}>
       <IconButton
-        color={color}
-        bg="transparent"
+        bg={useColorModeValue("black", "white")}
+        color={useColorModeValue("white", "black")}
         aria-label="Toggle theme"
-        icon={useColorModeValue(<BsMoonStarsFill />, <BsFillMoonFill />)}
+        icon={useColorModeValue(<BsMoonStarsFill />, <BsSunriseFill />)}
         onClick={toggleColorMode}
       ></IconButton>
     </AnimatePresence>
