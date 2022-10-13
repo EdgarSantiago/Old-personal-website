@@ -40,4 +40,6 @@ const Plane = forwardRef(
   }
 );
 
+Plane.displayName = "Plane";
+
 export default Plane;
