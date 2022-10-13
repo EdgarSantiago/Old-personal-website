@@ -125,8 +125,8 @@ export default function Navbar() {
                   <Link href="/">
                     <MenuItem>Início</MenuItem>
                   </Link>
-                  <MenuItem>Categorias</MenuItem>
-                  <MenuItem>Última notícias</MenuItem>
+                  <MenuItem>Blog</MenuItem>
+                  <MenuItem>Sobre Min</MenuItem>
                 </MenuList>
               </Menu>
             </Box>

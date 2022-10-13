@@ -25,7 +25,7 @@ export default function Home() {
     <Layout>
       <Notebook />
       <Flex justify="center">
-        <Box px="50px" w="700px">
+        <Box px={["25px", "50px"]} w="700px">
           <Heading mb={0}>Edgar Santiago</Heading>
           <Text mb={5}>Criador Digital ( Ciêntista / Artista / Dev )</Text>
 
@@ -95,14 +95,18 @@ export default function Home() {
           right="0"
           left="0"
           height="200px"
-          width="100%"
+          width={["100%", "500px"]}
           backdropFilter="auto"
           backdropBlur="2px"
           textAlign="center"
           px={5}
           py={2}
         >
-          <Heading fontSize="2xl">
+          <Heading
+            fontSize="2xl"
+            color={useColorModeValue("#fafafa", "#fafafa")}
+            textShadow="1px 1px 0px #111111"
+          >
             Qualquer um pode escrever um código que o computador entenda. Bons
             programadores escrevem códigos que os humanos entendam.
           </Heading>
