@@ -101,21 +101,22 @@ export default function Navbar() {
                   Blog
                 </Button>
               </Link>
-              <Link href="/categories">
+              <Link href="/works">
                 <Button
                   color={useColorModeValue(color, !color)}
                   variant="ghost"
                   colorSchema="green"
                 >
-                  Sobre mim
+                  Trabalhos
                 </Button>
               </Link>
             </HStack>
+            <ThemeToggleButton />
           </Show>
-          <Spacer />
-          <ThemeToggleButton />
 
           <Show below="1000px">
+            <Spacer />
+            <ThemeToggleButton />
             <Box>
               <Menu>
                 <MenuButton as={Button} px="10px">

@@ -40,8 +40,9 @@ export default function Home() {
           <Text style={{ textIndent: "1em" }} mt={2} mb={5}>
             Tenho 21 anos e estudo desenvolvimento web há 6 anos, atualmente
             estou cursando o último semestre de Ciência da Computação. Sou
-            Especializado na criação de sites profissionais, que funcionam em
-            celulares, tablets, pc, etc.
+            Especializado em frontend com TypeScript, utilizando NextJs com
+            Tailwind, Bootstrap, Styled-Components, ChakraUi, etc. Também gosto
+            de desenvolver APIs restful com NodeJs e MongoDB.
           </Text>
 
           <Heading
