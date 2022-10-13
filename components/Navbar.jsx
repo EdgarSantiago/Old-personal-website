@@ -39,7 +39,7 @@ export default function Navbar() {
       return (
         setColor("#1a1818"),
         setIsShadow("md"),
-        setBgColor("linear(to-r, #faedbe , #9472cf)"),
+        setBgColor("linear(to-r, #faedbe , #f83636)"),
         setBgColor2("linear(to-r, #111111, #111111)")
       );
     }
@@ -75,7 +75,7 @@ export default function Navbar() {
                 fontSize="20px"
                 mr="15px"
               >
-                Teste
+                EdgarZ
               </Heading>
             </Box>
           </Link>
@@ -110,6 +110,7 @@ export default function Navbar() {
                   Sobre mim
                 </Button>
               </Link>
+              <ThemeToggleButton />
             </HStack>
           </Show>
 

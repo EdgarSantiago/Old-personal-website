@@ -203,9 +203,9 @@ export default function Gallery() {
         <Effects>
           <Suspense fallback={null}>
             <HeadsUpDisplay>
-              <Content />
-              <Map />
               <Marker />
+              <Map />
+              <Content />
             </HeadsUpDisplay>
           </Suspense>
         </Effects>

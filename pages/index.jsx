@@ -27,7 +27,7 @@ export default function Home() {
       <Flex justify="center">
         <Box px="50px" w="700px">
           <Heading mb={0}>Edgar Santiago</Heading>
-          <Text mb={4}>Criador Digital ( Ciêntista / Artista / Dev )</Text>
+          <Text mb={5}>Criador Digital ( Ciêntista / Artista / Dev )</Text>
 
           <Heading
             display="inline"

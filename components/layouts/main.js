@@ -13,6 +13,7 @@ const Main = ({ children, router }) => {
       <Container py="0px" px="0px" maxW="100%" h="100%">
         {children}
       </Container>
+      <Footer />
     </Box>
   );
 };
