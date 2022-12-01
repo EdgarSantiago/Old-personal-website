@@ -72,7 +72,8 @@ export default function Navbar() {
           <Link href="/">
             <Box className="click">
               <Heading
-                color={useColorModeValue(color, !color)}
+                style={{ textShadow: "1px 1px 0px #11111186" }}
+                color="#fafafa"
                 mr="15px"
                 fontSize="26px"
                 fontFamily="alien"
