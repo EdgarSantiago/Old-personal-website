@@ -22,12 +22,18 @@ export default function Banner() {
           slidesPerView={1}
           spaceBetween={150}
           centeredSlides={true}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 2000 }}
           className="mySwipe mt-0"
           modules={[Autoplay, EffectFade, Navigation]}
         >
           <SwiperSlide>
-            <BannerSlide imgLink="" />
+            <BannerSlide imgLink="https://wallpaperaccess.com/full/4436296.jpg" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <BannerSlide imgLink="https://wallpaperaccess.com/full/2320946.jpg" />
+          </SwiperSlide>
+          <SwiperSlide>
+            <BannerSlide imgLink="https://wallpaper.dog/large/5486978.jpg" />
           </SwiperSlide>
         </Swiper>
       </Box>
@@ -37,20 +43,18 @@ export default function Banner() {
 
 export function BannerSlide({ children, imgLink, width }) {
   return (
-    <FramerBox>
-      <Box
-        filter="auto"
-        brightness="70%"
-        h={["30vh", "40vh"]}
-        width="100%"
-        style={{
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "100%",
-          backgroundImage: `linear-gradient(to top,#11111130,#11111116 ),url(${imgLink})`,
-        }}
-        className=" text-center text-white"
-      ></Box>
-    </FramerBox>
+    <Box
+      filter="auto"
+      brightness="70%"
+      h={["30vh", "40vh"]}
+      width="100%"
+      style={{
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "100%",
+        backgroundImage: `linear-gradient(to top,#11111186,#11111186 ),url(${imgLink})`,
+      }}
+      className=" text-center text-white"
+    ></Box>
   );
 }

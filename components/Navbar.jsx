@@ -59,7 +59,8 @@ export default function Navbar() {
         top={0}
         w="100%"
         zIndex={2}
-        px={["0px", "10px", "20px", "300px"]}
+        px={["0px", "10px", "20px", "100px", "250px", "500px"]}
+        py="15px"
       >
         <Flex
           minWidth="max-content"
@@ -81,56 +82,12 @@ export default function Navbar() {
           </Link>
           <Show above="1000px">
             <Spacer />
-
-            <HStack spacing="5px">
-              <Link href="/">
-                <Button
-                  color={useColorModeValue(color, !color)}
-                  variant="ghost"
-                  colorSchema="green"
-                >
-                  Início
-                </Button>
-              </Link>
-              <Link href="/">
-                <Button
-                  color={useColorModeValue(color, !color)}
-                  variant="ghost"
-                  colorSchema="green"
-                >
-                  Blog
-                </Button>
-              </Link>
-              <Link href="/works">
-                <Button
-                  color={useColorModeValue(color, !color)}
-                  variant="ghost"
-                  colorSchema="green"
-                >
-                  Trabalhos
-                </Button>
-              </Link>
-            </HStack>
             <ThemeToggleButton />
           </Show>
 
           <Show below="1000px">
             <Spacer />
             <ThemeToggleButton />
-            <Box>
-              <Menu>
-                <MenuButton as={Button} px="10px">
-                  <HamburgerIcon w={4} h={4} />
-                </MenuButton>
-                <MenuList>
-                  <Link href="/">
-                    <MenuItem>Início</MenuItem>
-                  </Link>
-                  <MenuItem>Blog</MenuItem>
-                  <MenuItem>Sobre Min</MenuItem>
-                </MenuList>
-              </Menu>
-            </Box>
           </Show>
         </Flex>
       </Box>
