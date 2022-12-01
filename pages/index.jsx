@@ -127,9 +127,10 @@ export default function Home() {
             color={useColorModeValue("#fafafa", "#fafafa")}
             textShadow="1px 1px 0px #111111"
           >
-            Qualquer um pode escrever um código que o computador entenda.{" "}
+            <Text color="red.400">Qualquer um pode</Text> escrever um código que
+            o computador entenda.{" "}
             <Text color="red.400">Bons programadores </Text> escrevem códigos
-            que os humanos entendam.
+            que os humanos entendam!
           </Heading>
         </Box>
         <Box h="100%">
