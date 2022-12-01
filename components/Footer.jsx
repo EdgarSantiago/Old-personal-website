@@ -5,9 +5,9 @@ const Footer = () => {
     <Box
       bg={useColorModeValue("#fafafa", "#111111")}
       align="center"
-      opacity={0.4}
+      opacity={0.9}
       fontSize="sm"
-      py={3}
+      py={1}
     >
       &copy; {new Date().getFullYear()} Desenvolvido por Edgar Santiago. Todos
       direitos reservados.
