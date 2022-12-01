@@ -46,7 +46,7 @@ export function BannerSlide({ children, imgLink, width }) {
     <Box
       filter="auto"
       brightness="70%"
-      h={["30vh", "40vh"]}
+      h={["30vh"]}
       width="100%"
       style={{
         backgroundPosition: "center",

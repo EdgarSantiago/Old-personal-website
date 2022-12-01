@@ -60,7 +60,7 @@ export default function Navbar() {
         w="100%"
         zIndex={2}
         px={["0px", "10px", "20px", "100px", "250px", "500px"]}
-        py="15px"
+        py="10px"
       >
         <Flex
           minWidth="max-content"
@@ -73,8 +73,10 @@ export default function Navbar() {
             <Box className="click">
               <Heading
                 color={useColorModeValue(color, !color)}
-                fontSize="20px"
                 mr="15px"
+                fontSize="26px"
+                fontFamily="alien"
+                fontWeight={"hairline"}
               >
                 EdgarZ
               </Heading>

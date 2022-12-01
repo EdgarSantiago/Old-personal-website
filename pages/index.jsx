@@ -26,14 +26,23 @@ export default function Home() {
       <Notebook />
       <Flex justify="center">
         <Box px={["25px", "50px"]} w="700px">
-          <Heading mb={0}>Edgar Santiago</Heading>
+          <Heading
+            mb={0}
+            fontSize="26px"
+            fontFamily="alien"
+            fontWeight={"thin"}
+          >
+            Edgar Santiago
+          </Heading>
           <Text mb={5}>Criador Digital ( Ciêntista / Artista / Dev )</Text>
 
           <Heading
             display="inline"
-            fontSize="xl"
             borderBottom="3px  solid"
             borderColor="red.400"
+            fontSize="26px"
+            fontFamily="alien"
+            fontWeight={"thin"}
           >
             Sobre mim
           </Heading>
@@ -47,7 +56,9 @@ export default function Home() {
 
           <Heading
             display="inline"
-            fontSize="xl"
+            fontSize="26px"
+            fontFamily="alien"
+            fontWeight={"thin"}
             borderBottom="3px  solid"
             borderColor="red.400"
           >
@@ -65,7 +76,9 @@ export default function Home() {
 
           <Heading
             display="inline"
-            fontSize="xl"
+            fontSize="26px"
+            fontFamily="alien"
+            fontWeight={"thin"}
             borderBottom="3px  solid"
             borderColor="red.400"
           >
@@ -95,21 +108,28 @@ export default function Home() {
           bottom="0"
           right="0"
           left="0"
-          height="200px"
-          width={["100%", "500px"]}
-          backdropFilter="auto"
-          backdropBlur="2px"
+          width={["90%", "500px"]}
+          height={"100%"}
+          py="20px"
           textAlign="center"
           px={5}
-          py={2}
         >
           <Heading
-            fontSize="2xl"
+            mt="200px"
+            p="20px"
+            bg="#fafafa86"
+            backdropFilter="auto"
+            backdropBlur="2px"
+            rounded="md"
+            fontSize="26px"
+            fontFamily="alien"
+            fontWeight={"thin"}
             color={useColorModeValue("#fafafa", "#fafafa")}
             textShadow="1px 1px 0px #111111"
           >
-            Qualquer um pode escrever um código que o computador entenda. Bons
-            programadores escrevem códigos que os humanos entendam.
+            Qualquer um pode escrever um código que o computador entenda.{" "}
+            <Text color="red.400">Bons programadores </Text> escrevem códigos
+            que os humanos entendam.
           </Heading>
         </Box>
         <Box h="100%">
