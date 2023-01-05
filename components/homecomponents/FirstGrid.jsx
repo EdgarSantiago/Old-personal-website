@@ -23,6 +23,7 @@ import {
   UnorderedList,
 } from "@chakra-ui/react";
 import {
+  BsChatSquareQuote,
   BsFacebook,
   BsGithub,
   BsLink45Deg,
@@ -86,6 +87,22 @@ export default function FirstGrid() {
           bg="#fafafa1b"
           color="white"
         >
+          <Icon
+            left={3}
+            top={3}
+            h={6}
+            w={6}
+            position="absolute"
+            as={BsChatSquareQuote}
+          />
+          <Icon
+            right={3}
+            bottom={3}
+            h={6}
+            w={6}
+            position="absolute"
+            as={BsChatSquareQuote}
+          />
           <Heading textShadow="2px 2px 10px #11111154" size="md" mb={1}>
             Hello World!
           </Heading>
