@@ -7,10 +7,9 @@ import Banner from "../Banner";
 import { useEffect, useState } from "react";
 
 const backgroundImages = [
-  "https://images.hdqwalls.com/download/a-neon-city-4m-2560x1700.jpg",
-  "https://images.hdqwalls.com/download/colorful-neon-city-4k-tx-2560x1700.jpg",
-  "https://images.hdqwalls.com/wallpapers/neon-lights-city-cyberpunk-4k-oh.jpg",
-  "https://wallup.net/wp-content/uploads/2017/11/22/338668-cyberpunk-city-neon.jpg",
+  "https://rare-gallery.com/uploads/posts/547224-landscape-wallpaper.gif",
+  "https://i.pinimg.com/originals/ab/26/01/ab26019d6a9def8082a9d5134a9e2d74.gif",
+  "https://www.nawpic.com/media/2020/pixel-art-nawpic.webp",
 ];
 
 const Main = ({ children, router }) => {
@@ -25,7 +24,7 @@ const Main = ({ children, router }) => {
   return (
     <Box
       as="main"
-      height={["100%", "100%", "100vh", "100vh"]}
+      height={["100%", "100%", "100%", "100%", "100vh"]}
       style={{
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",

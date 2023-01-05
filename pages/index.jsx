@@ -22,6 +22,7 @@ import {
   Tooltip,
   SliderThumb,
   Icon,
+  useToast,
 } from "@chakra-ui/react";
 import ParallaxText, { AnimeRockersParallax } from "../components/ParallaxTxt";
 import Notebook from "../components/Notebook";
@@ -40,11 +41,15 @@ import {
   TbPlayerSkipForward,
   TbWorld,
 } from "react-icons/tb";
+import { IoGameControllerOutline } from "react-icons/io5";
+import { MdWorkOutline } from "react-icons/md";
+
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import FirstGrid from "../components/homecomponents/FirstGrid";
 import TransparentCard from "../components/homecomponents/TransparentCard";
 import {
+  BsCpu,
   BsFileImage,
   BsGithub,
   BsLink45Deg,
@@ -58,6 +63,11 @@ export default function Home() {
   const [buttonHover, setButtonHover] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+
+  const toast = useToast({
+    position: "top",
+    title: "Em breve",
+  });
 
   useEffect(() => {
     const currentDate = new Date();
@@ -84,12 +94,17 @@ export default function Home() {
   }, []);
 
   return (
-    <SimpleGrid bg="#11111117" h="100%" columns={[1, 1, 1, 2, 2]} spacing={5}>
+    <SimpleGrid h="100%" columns={[1, 1, 1, 2, 2]} spacing={5}>
       <FirstGrid />
       <Flex flexDirection={"column"} height="100%" justify="center">
         <SimpleGrid columns={2} spacing={5} mb={5}>
           <TransparentCard>
             <Flex
+              onClick={() => {
+                toast({
+                  status: "warning",
+                });
+              }}
               direction={"column"}
               h="100%"
               justify="center"
@@ -146,10 +161,15 @@ export default function Home() {
         <Box color="white" mb={2}>
           <Flex w="100%" h="100%">
             <Icon w={6} h={6} size="lg" as={BsLink45Deg} />
-            <Text ml={2}>Lista de sites</Text>
+            <Text ml={2}>Lista de links</Text>
           </Flex>
         </Box>
-        <SimpleGrid w="100%" columns={4} spacing={5} mb={5}>
+        <SimpleGrid
+          w="100%"
+          columns={[1, 1, 2, 2, 4]}
+          spacing={[2, 2, 5, 5, 5]}
+          mb={5}
+        >
           <TransparentCard>
             <Flex align="center" justify={"center"} w="100%" h="100%">
               <Icon w={6} h={6} size="lg" as={BsFileImage} />
@@ -180,7 +200,7 @@ export default function Home() {
 
           <TransparentCard>
             <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={TbWorld} />
+              <Icon w={6} h={6} size="lg" as={IoGameControllerOutline} />
               <Text ml={2}>Meus jogos</Text>
             </Flex>
           </TransparentCard>
@@ -194,15 +214,15 @@ export default function Home() {
 
           <TransparentCard>
             <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={TbWorld} />
-              <Text ml={2}>Websites legais</Text>
+              <Icon w={6} h={6} size="lg" as={BsCpu} />
+              <Text ml={2}>Meu pc</Text>
             </Flex>
           </TransparentCard>
 
           <TransparentCard>
             <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={TbWorld} />
-              <Text ml={2}>Websites legais</Text>
+              <Icon w={6} h={6} size="lg" as={MdWorkOutline} />
+              <Text ml={2}>Meu trabalho</Text>
             </Flex>
           </TransparentCard>
         </SimpleGrid>

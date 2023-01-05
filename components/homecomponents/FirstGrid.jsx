@@ -152,7 +152,6 @@ export default function FirstGrid() {
           />
 
           <IconButton
-            shadow={"md"}
             onMouseEnter={() => setButtonHover("Manda um email ~")}
             onMouseLeave={() => setButtonHover("")}
             bg={"ghost"}
