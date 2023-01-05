@@ -44,8 +44,15 @@ import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import FirstGrid from "../components/homecomponents/FirstGrid";
 import TransparentCard from "../components/homecomponents/TransparentCard";
-import { BsFileImage, BsLink45Deg, BsMusicNoteBeamed } from "react-icons/bs";
+import {
+  BsFileImage,
+  BsGithub,
+  BsLink45Deg,
+  BsMusicNoteBeamed,
+} from "react-icons/bs";
 import { FaBlog } from "react-icons/fa";
+import GitHubCalendar from "react-github-calendar";
+import Link from "next/link";
 
 export default function Home() {
   const [buttonHover, setButtonHover] = useState("");
@@ -142,7 +149,7 @@ export default function Home() {
             <Text ml={2}>Lista de sites</Text>
           </Flex>
         </Box>
-        <SimpleGrid w="100%" columns={4} spacing={5}>
+        <SimpleGrid w="100%" columns={4} spacing={5} mb={5}>
           <TransparentCard>
             <Flex align="center" justify={"center"} w="100%" h="100%">
               <Icon w={6} h={6} size="lg" as={BsFileImage} />
@@ -170,7 +177,46 @@ export default function Home() {
               <Text ml={2}>Websites legais</Text>
             </Flex>
           </TransparentCard>
+
+          <TransparentCard>
+            <Flex align="center" justify={"center"} w="100%" h="100%">
+              <Icon w={6} h={6} size="lg" as={TbWorld} />
+              <Text ml={2}>Meus jogos</Text>
+            </Flex>
+          </TransparentCard>
+
+          <TransparentCard>
+            <Flex align="center" justify={"center"} w="100%" h="100%">
+              <Icon w={6} h={6} size="lg" as={TbWorld} />
+              <Text ml={2}>Websites legais</Text>
+            </Flex>
+          </TransparentCard>
+
+          <TransparentCard>
+            <Flex align="center" justify={"center"} w="100%" h="100%">
+              <Icon w={6} h={6} size="lg" as={TbWorld} />
+              <Text ml={2}>Websites legais</Text>
+            </Flex>
+          </TransparentCard>
+
+          <TransparentCard>
+            <Flex align="center" justify={"center"} w="100%" h="100%">
+              <Icon w={6} h={6} size="lg" as={TbWorld} />
+              <Text ml={2}>Websites legais</Text>
+            </Flex>
+          </TransparentCard>
         </SimpleGrid>
+        <Box color="white" mb={2}>
+          <Flex w="100%" h="100%">
+            <Icon w={4} h={4} size="lg" as={BsGithub} />
+            <Text ml={2}>Minhas contribuições</Text>
+          </Flex>
+        </Box>
+        <Box>
+          <TransparentCard>
+            <GitHubCalendar username="EdgarSantiago" color="#9e16e7d0" />
+          </TransparentCard>
+        </Box>
       </Flex>
     </SimpleGrid>
   );
