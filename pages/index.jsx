@@ -93,7 +93,7 @@ export default function Home() {
                   Minha playlist
                 </Button>
               </HStack>
-              <HStack mb="3" spacing={5} justify={"center"}>
+              <HStack mb="3" spacing={[2, 2, 2, 5]} justify={"center"}>
                 <IconButton
                   colorScheme={"whiteAlpha"}
                   icon={<TbPlayerSkipBack />}
@@ -112,7 +112,7 @@ export default function Home() {
               <Box>
                 <SliderThumbWithTooltip />
               </Box>
-              <Text fontSize="lg" mx="8">
+              <Text fontSize="lg" mx={[0, 0, 2, 4, 8]}>
                 Cantor - nome da música
               </Text>
             </Flex>
@@ -125,10 +125,10 @@ export default function Home() {
               textAlign={"center"}
             >
               <Text fontSize="sm">{date}</Text>
-              <Text fontSize={"5xl"} fontWeight="bold">
+              <Text fontSize={["3xl", "5xl"]} fontWeight="bold">
                 {time}
               </Text>
-              <Text fontSize="sm" mx="8">
+              <Text fontSize="sm" mx={[0, 0, 0, 4, 8]}>
                 Com organização e tempo, acha-se o segredo de fazer tudo e bem
                 feito.
               </Text>

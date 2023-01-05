@@ -13,6 +13,7 @@ import {
   HStack,
   Button,
   Icon,
+  Show,
 } from "@chakra-ui/react";
 
 import {
@@ -87,14 +88,16 @@ export default function FirstGrid() {
           bg="#fafafa1b"
           color="white"
         >
-          <Icon
-            left={3}
-            top={3}
-            h={6}
-            w={6}
-            position="absolute"
-            as={BsChatSquareQuote}
-          />
+          <Show above="sm">
+            <Icon
+              left={3}
+              top={3}
+              h={6}
+              w={6}
+              position="absolute"
+              as={BsChatSquareQuote}
+            />
+          </Show>
           <Icon
             right={3}
             bottom={3}

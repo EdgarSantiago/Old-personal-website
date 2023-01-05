@@ -25,7 +25,7 @@ const Main = ({ children, router }) => {
   return (
     <Box
       as="main"
-      height={["100%", "100%", "100%", "100vh"]}
+      height={["100%", "100%", "100vh", "100vh"]}
       style={{
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
