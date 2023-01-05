@@ -17,6 +17,7 @@ const Layout = ({ children, title }) => {
       variants={variants}
       transition={{ duration: 0.4, type: "easeInOut" }}
       style={{ position: "relative" }}
+      height="100vh"
     >
       <>
         {title && (

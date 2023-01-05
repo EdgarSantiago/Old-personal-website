@@ -3,14 +3,15 @@ import { Box, useColorModeValue } from "@chakra-ui/react";
 const Footer = () => {
   return (
     <Box
-      bg={useColorModeValue("#fafafa", "#111111")}
+      bg={useColorModeValue("#000000", "#111111")}
+      color="white"
       align="center"
       opacity={0.9}
-      fontSize="sm"
-      py={1}
+      fontSize="md"
+      py={3}
+      w="100%"
     >
-      &copy; {new Date().getFullYear()} Desenvolvido por Edgar Santiago. Todos
-      direitos reservados.
+      Copyright &copy; {new Date().getFullYear()} por Edgar Santiago.
     </Box>
   );
 };
