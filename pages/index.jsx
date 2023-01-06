@@ -58,6 +58,9 @@ import {
 import { FaBlog } from "react-icons/fa";
 import GitHubCalendar from "react-github-calendar";
 import Link from "next/link";
+import SpotifyPlayer from "../components/SpotifyPlayer";
+import Script from "next/script";
+import CustomModal from "../components/CustomModal";
 
 export default function Home() {
   const [buttonHover, setButtonHover] = useState("");
@@ -98,13 +101,14 @@ export default function Home() {
       <FirstGrid />
       <Flex flexDirection={"column"} height="100%" justify="center">
         <SimpleGrid columns={2} spacing={5} mb={5}>
+          <CustomModal />
           <TransparentCard>
             <Flex
-              onClick={() => {
-                toast({
-                  status: "warning",
-                });
-              }}
+              //onClick={() => {
+              //  toast({
+              //    status: "warning",
+              //  });
+              //}}
               direction={"column"}
               h="100%"
               justify="center"
@@ -112,7 +116,7 @@ export default function Home() {
             >
               <HStack mb="3" spacing={5} justify={"center"}>
                 <Button size="xs" colorScheme={"whiteAlpha"}>
-                  Minha playlist
+                  Conecte seu spotify
                 </Button>
               </HStack>
               <HStack mb="3" spacing={[2, 2, 2, 5]} justify={"center"}>
@@ -121,6 +125,7 @@ export default function Home() {
                   icon={<TbPlayerSkipBack />}
                 />
                 <IconButton
+                  id="togglePlay"
                   colorScheme={"whiteAlpha"}
                   icon={<TbPlayerPlay />}
                   size="lg"
@@ -170,12 +175,16 @@ export default function Home() {
           spacing={[2, 2, 5, 5, 5]}
           mb={5}
         >
-          <TransparentCard>
-            <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={BsFileImage} />
-              <Text ml={2}>Album de fotos</Text>
-            </Flex>
-          </TransparentCard>
+          <Link href="/album">
+            <Box>
+              <TransparentCard>
+                <Flex align="center" justify={"center"} w="100%" h="100%">
+                  <Icon w={6} h={6} size="lg" as={BsFileImage} />
+                  <Text ml={2}>Album de fotos</Text>
+                </Flex>
+              </TransparentCard>
+            </Box>
+          </Link>
 
           <TransparentCard>
             <Flex align="center" justify={"center"} w="100%" h="100%">
@@ -238,6 +247,47 @@ export default function Home() {
           </TransparentCard>
         </Box>
       </Flex>
+      <Script src="https://sdk.scdn.co/spotify-player.js" />
+      <Script>
+        {`
+        window.onSpotifyWebPlaybackSDKReady = () => {
+            const token = 'BQAcdfvwtuZn6l1PUaWlQAI6Tcb8c5yKmZrW-eEmD3gfn1UFjeSSl2OdbHL9NreNVeQ3JhHn5-0ehjHX8fcgTihtcGCN5gIiaQJL3qTDDZ33rrJ7Ic7qeGNPJOsZs3D4gRuLYO9657-Cg23cyT2O5JllO4k-iFWwYEDXNTRoORb_Zh0BuNMFYszSR2OcmQlveEtRl9reE0CR5bD-wS5FpUUAeBcLn0O-n-2PEqzgwcGGyFVuEA';
+            const player = new Spotify.Player({
+                name: 'edgarz.tech',
+                getOAuthToken: cb => { cb(token); },
+                volume: 1,
+
+            });
+
+            // Ready
+            player.addListener('ready', ({ device_id }) => {
+                console.log('Ready with Device ID', device_id);
+            });
+
+            // Not Ready
+            player.addListener('not_ready', ({ device_id }) => {
+                console.log('Device ID has gone offline', device_id);
+            });
+
+            player.addListener('initialization_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.addListener('authentication_error', ({ message }) => {
+                console.error(message);
+            });
+
+            player.addListener('account_error', ({ message }) => {
+                console.error(message);
+            });
+
+            document.getElementById('togglePlay').onclick = function() {
+              player.togglePlay();
+            };
+
+            player.connect();
+        }  `}
+      </Script>
     </SimpleGrid>
   );
 }

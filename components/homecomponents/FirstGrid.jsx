@@ -35,7 +35,8 @@ import {
   BsWhatsapp,
 } from "react-icons/bs";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function FirstGrid() {
   const [buttonHover, setButtonHover] = useState("");
@@ -134,31 +135,34 @@ export default function FirstGrid() {
           rounded="md"
           shadow="lg"
         >
-          <IconButton
-            onMouseEnter={() => setButtonHover("Meu github ~")}
-            onMouseLeave={() => setButtonHover("")}
-            bg={"ghost"}
-            color="github.500"
-            aria-label="Add to friends"
-            icon={<BsGithub />}
-          />
-          <IconButton
-            onMouseEnter={() => setButtonHover("Meu whatsapp ~")}
-            onMouseLeave={() => setButtonHover("")}
-            bg={"ghost"}
-            color="whatsapp.500"
-            aria-label="Add to friends"
-            icon={<BsWhatsapp />}
-          />
-
-          <IconButton
+          <Link href="https://github.com/EdgarSantiago">
+            <IconButton
+              onMouseEnter={() => setButtonHover("Meu github ~")}
+              onMouseLeave={() => setButtonHover("")}
+              bg={"ghost"}
+              color="github.500"
+              aria-label="Add to friends"
+              icon={<BsGithub />}
+            />
+          </Link>
+          <Link href="https://api.whatsapp.com/send/?phone=55013997303537&text&type=phone_number&app_absent=0">
+            <IconButton
+              onMouseEnter={() => setButtonHover("Meu whatsapp ~")}
+              onMouseLeave={() => setButtonHover("")}
+              bg={"ghost"}
+              color="whatsapp.500"
+              aria-label="Add to friends"
+              icon={<BsWhatsapp />}
+            />
+          </Link>
+          {/*<IconButton
             onMouseEnter={() => setButtonHover("Manda um email ~")}
             onMouseLeave={() => setButtonHover("")}
             bg={"ghost"}
             color="red.500"
             aria-label="Add to friends"
             icon={<BsMailbox2 />}
-          />
+          />*/}
           <Text position="absolute" right={2}>
             {buttonHover}
           </Text>
