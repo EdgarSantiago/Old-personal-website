@@ -6,45 +6,28 @@ import Footer from "../Footer";
 import Banner from "../Banner";
 import { useEffect, useState } from "react";
 
-const backgroundImages = [
-  "https://rare-gallery.com/uploads/posts/547224-landscape-wallpaper.gif",
-  "https://i.pinimg.com/originals/ab/26/01/ab26019d6a9def8082a9d5134a9e2d74.gif",
-  "https://www.nawpic.com/media/2020/pixel-art-nawpic.webp",
-];
-
 const Main = ({ children, router }) => {
-  const [currentImage, setCurrentImage] = useState("");
-
-  useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
-    const randomImage = backgroundImages[randomIndex];
-    setCurrentImage(randomImage);
-  }, [currentImage]);
-
   return (
-    <Box
+    <Container
       as="main"
-      height={["100%", "100%", "100%", "100%", "100vh"]}
+      py="50px"
+      px={["5px", "10px", "15px", "20px", "40px", "80px"]}
+      maxW="100%"
+      height="100%"
+      bg="white"
       style={{
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
       }}
-      backgroundSize="cover"
+      backgroundSize="100% 100%"
       backgroundImage={`linear-gradient(
-        to bottom,
-      #111111c3,
-        #111111c3
-      ),url(${currentImage})});`}
+      to bottom,
+    #111111c3,
+      #111111c3
+    ),url('https://media3.giphy.com/media/HZwazRfmuiVSSBjoGw/giphy.gif?cid=ecf05e47sygezvgqonk1yf6vh29z7ngobate90nueqd8vt3d&rid=giphy.gif&ct=g')});`}
     >
-      <Container
-        py="50px"
-        px={["10px", "15px", "25px", "30px", "100px"]}
-        maxW="100%"
-        height="100%"
-      >
-        {children}
-      </Container>
-    </Box>
+      {children}
+    </Container>
   );
 };
 

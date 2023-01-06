@@ -62,7 +62,14 @@ import SpotifyPlayer from "../components/SpotifyPlayer";
 import Script from "next/script";
 import CustomModal from "../components/CustomModal";
 
+const backgroundImages = [
+  "https://rare-gallery.com/uploads/posts/547224-landscape-wallpaper.gif",
+  "https://i.pinimg.com/originals/ab/26/01/ab26019d6a9def8082a9d5134a9e2d74.gif",
+  "https://www.nawpic.com/media/2020/pixel-art-nawpic.webp",
+];
+
 export default function Home() {
+  const [currentImage, setCurrentImage] = useState("");
   const [buttonHover, setButtonHover] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -71,7 +78,6 @@ export default function Home() {
     position: "top",
     title: "Em breve",
   });
-
   useEffect(() => {
     const currentDate = new Date();
     const dateOptions = {
@@ -94,162 +100,186 @@ export default function Home() {
     );
     setDate(dateString);
     setTime(timeString);
-  }, []);
+
+    const randomIndex = Math.floor(Math.random() * backgroundImages.length);
+    const randomImage = backgroundImages[randomIndex];
+    setCurrentImage(randomImage);
+  }, [currentImage]);
 
   return (
-    <SimpleGrid h="100%" columns={[1, 1, 1, 2, 2]} spacing={5}>
-      <FirstGrid />
-      <Flex flexDirection={"column"} height="100%" justify="center">
-        <SimpleGrid columns={2} spacing={5} mb={5}>
-          <CustomModal />
-          <TransparentCard>
-            <Flex
-              //onClick={() => {
-              //  toast({
-              //    status: "warning",
-              //  });
-              //}}
-              direction={"column"}
-              h="100%"
-              justify="center"
-              textAlign={"center"}
-            >
-              <HStack mb="3" spacing={5} justify={"center"}>
-                <Button size="xs" colorScheme={"whiteAlpha"}>
-                  Conecte seu spotify
-                </Button>
-              </HStack>
-              <HStack mb="3" spacing={[2, 2, 2, 5]} justify={"center"}>
-                <IconButton
-                  colorScheme={"whiteAlpha"}
-                  icon={<TbPlayerSkipBack />}
-                />
-                <IconButton
-                  id="togglePlay"
-                  colorScheme={"whiteAlpha"}
-                  icon={<TbPlayerPlay />}
-                  size="lg"
-                  fontSize="2xl"
-                />
-                <IconButton
-                  colorScheme={"whiteAlpha"}
-                  icon={<TbPlayerSkipForward />}
-                />
-              </HStack>
+    <Box
+      height={["100%", "100%", "100%", "100%", "100vh"]}
+      style={{
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+      backgroundSize="cover"
+      backgroundImage={`linear-gradient(
+      to bottom,
+    #111111c3,
+      #111111c3
+    ),url(${currentImage})});`}
+    >
+      <SimpleGrid
+        rounded="md"
+        border="1px solid white"
+        h="100%"
+        columns={[1, 1, 1, 2, 2]}
+        spacing={5}
+        p={[2, 5, 5, 10]}
+      >
+        <FirstGrid />
+        <Flex flexDirection={"column"} height="100%" justify="center">
+          <SimpleGrid columns={2} spacing={5} mb={5}>
+            <CustomModal />
+            <TransparentCard>
+              <Flex
+                //onClick={() => {
+                //  toast({
+                //    status: "warning",
+                //  });
+                //}}
+                direction={"column"}
+                h="100%"
+                justify="center"
+                textAlign={"center"}
+              >
+                <HStack mb="3" spacing={5} justify={"center"}>
+                  <Button size="xs" colorScheme={"whiteAlpha"}>
+                    Conecte seu spotify
+                  </Button>
+                </HStack>
+                <HStack mb="3" spacing={[2, 2, 2, 5]} justify={"center"}>
+                  <IconButton
+                    colorScheme={"whiteAlpha"}
+                    icon={<TbPlayerSkipBack />}
+                  />
+                  <IconButton
+                    id="togglePlay"
+                    colorScheme={"whiteAlpha"}
+                    icon={<TbPlayerPlay />}
+                    size="lg"
+                    fontSize="2xl"
+                  />
+                  <IconButton
+                    colorScheme={"whiteAlpha"}
+                    icon={<TbPlayerSkipForward />}
+                  />
+                </HStack>
+                <Box>
+                  <SliderThumbWithTooltip />
+                </Box>
+                <Text fontSize="lg" mx={[0, 0, 2, 4, 8]}>
+                  Cantor - nome da música
+                </Text>
+              </Flex>
+            </TransparentCard>
+            <TransparentCard>
+              <Flex
+                direction={"column"}
+                h="100%"
+                justify="center"
+                textAlign={"center"}
+              >
+                <Text fontSize="sm">{date}</Text>
+                <Text fontSize={["3xl", "5xl"]} fontWeight="bold">
+                  {time}
+                </Text>
+                <Text fontSize="sm" mx={[0, 0, 0, 4, 8]}>
+                  Com organização e tempo, acha-se o segredo de fazer tudo e bem
+                  feito.
+                </Text>
+              </Flex>
+            </TransparentCard>
+          </SimpleGrid>
+
+          <Box color="white" mb={2}>
+            <Flex w="100%" h="100%">
+              <Icon w={6} h={6} size="lg" as={BsLink45Deg} />
+              <Text ml={2}>Lista de links</Text>
+            </Flex>
+          </Box>
+          <SimpleGrid
+            w="100%"
+            columns={[1, 1, 2, 2, 4]}
+            spacing={[2, 2, 5, 5, 5]}
+            mb={5}
+          >
+            <Link href="/album">
               <Box>
-                <SliderThumbWithTooltip />
+                <TransparentCard>
+                  <Flex align="center" justify={"center"} w="100%" h="100%">
+                    <Icon w={6} h={6} size="lg" as={BsFileImage} />
+                    <Text ml={2}>Album de fotos</Text>
+                  </Flex>
+                </TransparentCard>
               </Box>
-              <Text fontSize="lg" mx={[0, 0, 2, 4, 8]}>
-                Cantor - nome da música
-              </Text>
-            </Flex>
-          </TransparentCard>
-          <TransparentCard>
-            <Flex
-              direction={"column"}
-              h="100%"
-              justify="center"
-              textAlign={"center"}
-            >
-              <Text fontSize="sm">{date}</Text>
-              <Text fontSize={["3xl", "5xl"]} fontWeight="bold">
-                {time}
-              </Text>
-              <Text fontSize="sm" mx={[0, 0, 0, 4, 8]}>
-                Com organização e tempo, acha-se o segredo de fazer tudo e bem
-                feito.
-              </Text>
-            </Flex>
-          </TransparentCard>
-        </SimpleGrid>
+            </Link>
 
-        <Box color="white" mb={2}>
-          <Flex w="100%" h="100%">
-            <Icon w={6} h={6} size="lg" as={BsLink45Deg} />
-            <Text ml={2}>Lista de links</Text>
-          </Flex>
-        </Box>
-        <SimpleGrid
-          w="100%"
-          columns={[1, 1, 2, 2, 4]}
-          spacing={[2, 2, 5, 5, 5]}
-          mb={5}
-        >
-          <Link href="/album">
-            <Box>
-              <TransparentCard>
-                <Flex align="center" justify={"center"} w="100%" h="100%">
-                  <Icon w={6} h={6} size="lg" as={BsFileImage} />
-                  <Text ml={2}>Album de fotos</Text>
-                </Flex>
-              </TransparentCard>
-            </Box>
-          </Link>
+            <TransparentCard>
+              <Flex align="center" justify={"center"} w="100%" h="100%">
+                <Icon w={6} h={6} size="lg" as={BsMusicNoteBeamed} />
+                <Text ml={2}>Músicas</Text>
+              </Flex>
+            </TransparentCard>
 
-          <TransparentCard>
-            <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={BsMusicNoteBeamed} />
-              <Text ml={2}>Músicas</Text>
-            </Flex>
-          </TransparentCard>
+            <TransparentCard>
+              <Flex align="center" justify={"center"} w="100%" h="100%">
+                <Icon w={6} h={6} size="lg" as={FaBlog} />
+                <Text ml={2}>Blog</Text>
+              </Flex>
+            </TransparentCard>
 
-          <TransparentCard>
-            <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={FaBlog} />
-              <Text ml={2}>Blog</Text>
-            </Flex>
-          </TransparentCard>
+            <TransparentCard>
+              <Flex align="center" justify={"center"} w="100%" h="100%">
+                <Icon w={6} h={6} size="lg" as={TbWorld} />
+                <Text ml={2}>Websites legais</Text>
+              </Flex>
+            </TransparentCard>
 
-          <TransparentCard>
-            <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={TbWorld} />
-              <Text ml={2}>Websites legais</Text>
-            </Flex>
-          </TransparentCard>
+            <TransparentCard>
+              <Flex align="center" justify={"center"} w="100%" h="100%">
+                <Icon w={6} h={6} size="lg" as={IoGameControllerOutline} />
+                <Text ml={2}>Meus jogos</Text>
+              </Flex>
+            </TransparentCard>
 
-          <TransparentCard>
-            <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={IoGameControllerOutline} />
-              <Text ml={2}>Meus jogos</Text>
-            </Flex>
-          </TransparentCard>
+            <TransparentCard>
+              <Flex align="center" justify={"center"} w="100%" h="100%">
+                <Icon w={6} h={6} size="lg" as={TbWorld} />
+                <Text ml={2}>Websites legais</Text>
+              </Flex>
+            </TransparentCard>
 
-          <TransparentCard>
-            <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={TbWorld} />
-              <Text ml={2}>Websites legais</Text>
-            </Flex>
-          </TransparentCard>
+            <TransparentCard>
+              <Flex align="center" justify={"center"} w="100%" h="100%">
+                <Icon w={6} h={6} size="lg" as={BsCpu} />
+                <Text ml={2}>Meu pc</Text>
+              </Flex>
+            </TransparentCard>
 
-          <TransparentCard>
-            <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={BsCpu} />
-              <Text ml={2}>Meu pc</Text>
+            <TransparentCard>
+              <Flex align="center" justify={"center"} w="100%" h="100%">
+                <Icon w={6} h={6} size="lg" as={MdWorkOutline} />
+                <Text ml={2}>Meu trabalho</Text>
+              </Flex>
+            </TransparentCard>
+          </SimpleGrid>
+          <Box color="white" mb={2}>
+            <Flex w="100%" h="100%">
+              <Icon w={4} h={4} size="lg" as={BsGithub} />
+              <Text ml={2}>Minhas contribuições</Text>
             </Flex>
-          </TransparentCard>
-
-          <TransparentCard>
-            <Flex align="center" justify={"center"} w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={MdWorkOutline} />
-              <Text ml={2}>Meu trabalho</Text>
-            </Flex>
-          </TransparentCard>
-        </SimpleGrid>
-        <Box color="white" mb={2}>
-          <Flex w="100%" h="100%">
-            <Icon w={4} h={4} size="lg" as={BsGithub} />
-            <Text ml={2}>Minhas contribuições</Text>
-          </Flex>
-        </Box>
-        <Box>
-          <TransparentCard>
-            <GitHubCalendar username="EdgarSantiago" color="#9e16e7d0" />
-          </TransparentCard>
-        </Box>
-      </Flex>
-      <Script src="https://sdk.scdn.co/spotify-player.js" />
-      <Script>
-        {`
+          </Box>
+          <Box>
+            <TransparentCard>
+              <GitHubCalendar username="EdgarSantiago" color="#9e16e7d0" />
+            </TransparentCard>
+          </Box>
+        </Flex>
+        <Script src="https://sdk.scdn.co/spotify-player.js" />
+        <Script>
+          {`
         window.onSpotifyWebPlaybackSDKReady = () => {
             const token = 'BQAcdfvwtuZn6l1PUaWlQAI6Tcb8c5yKmZrW-eEmD3gfn1UFjeSSl2OdbHL9NreNVeQ3JhHn5-0ehjHX8fcgTihtcGCN5gIiaQJL3qTDDZ33rrJ7Ic7qeGNPJOsZs3D4gRuLYO9657-Cg23cyT2O5JllO4k-iFWwYEDXNTRoORb_Zh0BuNMFYszSR2OcmQlveEtRl9reE0CR5bD-wS5FpUUAeBcLn0O-n-2PEqzgwcGGyFVuEA';
             const player = new Spotify.Player({
@@ -287,8 +317,9 @@ export default function Home() {
 
             player.connect();
         }  `}
-      </Script>
-    </SimpleGrid>
+        </Script>
+      </SimpleGrid>
+    </Box>
   );
 }
 
