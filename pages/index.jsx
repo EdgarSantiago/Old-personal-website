@@ -23,6 +23,9 @@ import {
   SliderThumb,
   Icon,
   useToast,
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
 } from "@chakra-ui/react";
 import ParallaxText, { AnimeRockersParallax } from "../components/ParallaxTxt";
 import Notebook from "../components/Notebook";
@@ -61,11 +64,14 @@ import Link from "next/link";
 import SpotifyPlayer from "../components/SpotifyPlayer";
 import Script from "next/script";
 import CustomModal from "../components/CustomModal";
+import { ChevronRightIcon } from "@chakra-ui/icons";
 
 const backgroundImages = [
   "https://rare-gallery.com/uploads/posts/547224-landscape-wallpaper.gif",
   "https://i.pinimg.com/originals/ab/26/01/ab26019d6a9def8082a9d5134a9e2d74.gif",
   "https://www.nawpic.com/media/2020/pixel-art-nawpic.webp",
+  "https://wallpaperaccess.com/full/5687409.gif",
+  "https://img.idesign.vn/2020/09/id14.png",
 ];
 
 export default function Home() {
@@ -108,7 +114,10 @@ export default function Home() {
 
   return (
     <Box
-      height={["100%", "100%", "100%", "100%", "100vh"]}
+      border="2px solid #111111"
+      rounded="md"
+      boxShadow={"10px 10px 0px #1111116b"}
+      height={["100%", "100%", "100%", "100%", "90vh"]}
       style={{
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -116,13 +125,25 @@ export default function Home() {
       backgroundSize="cover"
       backgroundImage={`linear-gradient(
       to bottom,
-    #111111c3,
-      #111111c3
+    #39353589,
+      #39353589
     ),url(${currentImage})});`}
     >
+      <Box rounded="sm" bg="#fafafa" p={2} borderBottom="2px solid #111111">
+        <Breadcrumb
+          px={10}
+          fontSize={"xl"}
+          spacing="8px"
+          separator={<ChevronRightIcon color="red.500" />}
+        >
+          <BreadcrumbItem>
+            <Link href={"/"}>
+              <BreadcrumbLink>Início</BreadcrumbLink>
+            </Link>
+          </BreadcrumbItem>
+        </Breadcrumb>
+      </Box>
       <SimpleGrid
-        rounded="md"
-        border="1px solid white"
         h="100%"
         columns={[1, 1, 1, 2, 2]}
         spacing={5}
@@ -132,7 +153,7 @@ export default function Home() {
         <Flex flexDirection={"column"} height="100%" justify="center">
           <SimpleGrid columns={2} spacing={5} mb={5}>
             <CustomModal />
-            <TransparentCard>
+            <TransparentCard padding="20px">
               <Flex
                 //onClick={() => {
                 //  toast({
@@ -209,7 +230,7 @@ export default function Home() {
               <Box>
                 <TransparentCard>
                   <Flex align="center" justify={"center"} w="100%" h="100%">
-                    <Icon w={6} h={6} size="lg" as={BsFileImage} />
+                    <Icon w={6} h={6} size="sm" as={BsFileImage} />
                     <Text ml={2}>Album de fotos</Text>
                   </Flex>
                 </TransparentCard>
@@ -218,62 +239,66 @@ export default function Home() {
 
             <TransparentCard>
               <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="lg" as={BsMusicNoteBeamed} />
+                <Icon w={6} h={6} size="sm" as={BsMusicNoteBeamed} />
                 <Text ml={2}>Músicas</Text>
               </Flex>
             </TransparentCard>
 
             <TransparentCard>
               <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="lg" as={FaBlog} />
+                <Icon w={6} h={6} size="sm" as={FaBlog} />
                 <Text ml={2}>Blog</Text>
               </Flex>
             </TransparentCard>
 
             <TransparentCard>
               <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="lg" as={TbWorld} />
-                <Text ml={2}>Websites legais</Text>
+                <Icon w={6} h={6} size="sm" as={TbWorld} />
+                <Text ml={2}>Websites</Text>
               </Flex>
             </TransparentCard>
 
-            <TransparentCard>
-              <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="lg" as={IoGameControllerOutline} />
-                <Text ml={2}>Meus jogos</Text>
-              </Flex>
-            </TransparentCard>
+            <Link href="/meusjogos">
+              <Box>
+                <TransparentCard>
+                  <Flex align="center" justify={"center"} w="100%" h="100%">
+                    <Icon w={6} h={6} size="sm" as={IoGameControllerOutline} />
+                    <Text ml={2}>Meus jogos</Text>
+                  </Flex>
+                </TransparentCard>
+              </Box>
+            </Link>
 
             <TransparentCard>
               <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="lg" as={TbWorld} />
-                <Text ml={2}>Websites legais</Text>
-              </Flex>
-            </TransparentCard>
-
-            <TransparentCard>
-              <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="lg" as={BsCpu} />
+                <Icon w={6} h={6} size="sm" as={BsCpu} />
                 <Text ml={2}>Meu pc</Text>
               </Flex>
             </TransparentCard>
 
             <TransparentCard>
               <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="lg" as={MdWorkOutline} />
+                <Icon w={6} h={6} size="sm" as={TbWorld} />
+                <Text ml={2}>Habilidades</Text>
+              </Flex>
+            </TransparentCard>
+
+            <TransparentCard>
+              <Flex align="center" justify={"center"} w="100%" h="100%">
+                <Icon w={6} h={6} size="sm" as={MdWorkOutline} />
                 <Text ml={2}>Meu trabalho</Text>
               </Flex>
             </TransparentCard>
           </SimpleGrid>
           <Box color="white" mb={2}>
             <Flex w="100%" h="100%">
-              <Icon w={4} h={4} size="lg" as={BsGithub} />
+              <Icon w={4} h={4} size="sm" as={BsGithub} />
               <Text ml={2}>Minhas contribuições</Text>
             </Flex>
           </Box>
           <Box>
             <TransparentCard>
-              <GitHubCalendar username="EdgarSantiago" color="#9e16e7d0" />
+              <GitHubCalendar username="EdgarSantiago" color="#c92828d0" />
             </TransparentCard>
           </Box>
         </Flex>
@@ -332,7 +357,7 @@ function SliderThumbWithTooltip() {
       defaultValue={80}
       min={0}
       max={100}
-      colorScheme="purple"
+      colorScheme="red"
       onChange={(v) => setSliderValue(v)}
       onMouseEnter={() => setShowTooltip(true)}
       onMouseLeave={() => setShowTooltip(false)}
@@ -342,7 +367,7 @@ function SliderThumbWithTooltip() {
       </SliderTrack>
       <Tooltip
         hasArrow
-        bg="purple.500"
+        bg="red.500"
         color="white"
         placement="top"
         isOpen={showTooltip}

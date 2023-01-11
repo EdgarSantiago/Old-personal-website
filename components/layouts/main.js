@@ -22,9 +22,9 @@ const Main = ({ children, router }) => {
       backgroundSize="100% 100%"
       backgroundImage={`linear-gradient(
       to bottom,
-    #111111c3,
-      #111111c3
-    ),url('https://media3.giphy.com/media/HZwazRfmuiVSSBjoGw/giphy.gif?cid=ecf05e47sygezvgqonk1yf6vh29z7ngobate90nueqd8vt3d&rid=giphy.gif&ct=g')});`}
+    #fafafa,
+      #fafafa
+    ),url('')});`}
     >
       {children}
     </Container>

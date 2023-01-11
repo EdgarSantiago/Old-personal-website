@@ -53,6 +53,7 @@ export default function FirstGrid() {
       >
         <Box as={motion.div} whileHover={{ rotateY: 180 }}>
           <Avatar
+            filter="hue-rotate(-280deg) grayscale(50%)"
             shadow="xl"
             size="2xl"
             name="Edgar Santiago"
@@ -60,10 +61,10 @@ export default function FirstGrid() {
           />
         </Box>
 
-        <Box textShadow="2px 2px 5px #2217ecb5" color="#fafafaee">
+        <Box textShadow="2px 2px 5px #ec171753" color="#fafafaee">
           <Heading size="3xl" mb={1}>
             edgarz
-            <span style={{ fontSize: "30px", color: "#b3b5efe3" }}>.tech</span>
+            <span style={{ fontSize: "30px", color: "#efb3b3e2" }}>.tech</span>
           </Heading>
         </Box>
       </Flex>
@@ -79,14 +80,14 @@ export default function FirstGrid() {
         <Box
           as={motion.div}
           animate={{ border: "1px solid white" }}
-          whileHover={{ scale: 1.01, border: "1px solid #9e16e7d0" }}
+          whileHover={{ scale: 1.01, border: "1px solid #c92828d0" }}
           w={["100%", "100%", "100%", "100%", "60%"]}
           p={["20px", "40px"]}
           rounded="md"
           shadow="lg"
           backdropFilter="auto"
           backdropBlur="10px"
-          bg="#fafafa1b"
+          bg="#fafafa41"
           color="white"
         >
           <Show above="sm">
@@ -124,10 +125,10 @@ export default function FirstGrid() {
           position={"relative"}
           as={motion.div}
           animate={{ border: "1px solid white" }}
-          whileHover={{ scale: 1.01, border: "1px solid #9e16e7d0" }}
+          whileHover={{ scale: 1.01, border: "1px solid #c92828d0" }}
           backdropFilter="auto"
           backdropBlur="10px"
-          bg="#fafafa1b"
+          bg="#fafafa41"
           color="white"
           spacing="4px"
           w={["100%", "100%", "100%", "100%", "60%"]}
