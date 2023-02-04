@@ -81,14 +81,13 @@ export default function Album() {
         </Box>
         <OrderedList spacing={2} fontSize="2xl" py={5} px={10}>
           {games.map((game, i) => (
-            <Link href="">
+            <Link key={i} href="">
               <ListItem
                 whileHover={{
                   scale: 1.01,
                 }}
                 display="block"
                 as={motion.li}
-                key={i}
               >
                 {game.name}
               </ListItem>

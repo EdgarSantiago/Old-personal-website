@@ -300,47 +300,6 @@ export default function Home() {
             </TransparentCard>
           </Box>
         </Flex>
-        <Script src="https://sdk.scdn.co/spotify-player.js" />
-        <Script>
-          {`
-        window.onSpotifyWebPlaybackSDKReady = () => {
-            const token = 'BQAcdfvwtuZn6l1PUaWlQAI6Tcb8c5yKmZrW-eEmD3gfn1UFjeSSl2OdbHL9NreNVeQ3JhHn5-0ehjHX8fcgTihtcGCN5gIiaQJL3qTDDZ33rrJ7Ic7qeGNPJOsZs3D4gRuLYO9657-Cg23cyT2O5JllO4k-iFWwYEDXNTRoORb_Zh0BuNMFYszSR2OcmQlveEtRl9reE0CR5bD-wS5FpUUAeBcLn0O-n-2PEqzgwcGGyFVuEA';
-            const player = new Spotify.Player({
-                name: 'edgarz.tech',
-                getOAuthToken: cb => { cb(token); },
-                volume: 1,
-
-            });
-
-            // Ready
-            player.addListener('ready', ({ device_id }) => {
-                console.log('Ready with Device ID', device_id);
-            });
-
-            // Not Ready
-            player.addListener('not_ready', ({ device_id }) => {
-                console.log('Device ID has gone offline', device_id);
-            });
-
-            player.addListener('initialization_error', ({ message }) => {
-                console.error(message);
-            });
-
-            player.addListener('authentication_error', ({ message }) => {
-                console.error(message);
-            });
-
-            player.addListener('account_error', ({ message }) => {
-                console.error(message);
-            });
-
-            document.getElementById('togglePlay').onclick = function() {
-              player.togglePlay();
-            };
-
-            player.connect();
-        }  `}
-        </Script>
       </SimpleGrid>
     </Box>
   );

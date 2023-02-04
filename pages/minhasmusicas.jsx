@@ -45,8 +45,21 @@ const listGames = [
     name: "Goodbye - Dj Cinema",
     link: "https://open.spotify.com/track/5Ips2rawNAfzMMEuPM0jsT?si=f573554f1f574f7f",
   },
-  { name: "Elder Ring", link: "" },
-  { name: "Elder Ring", link: "" },
+  {
+    name: "Thai Take Away ",
+    link: "https://open.spotify.com/track/47jPtQs9LRiVLZG4t9GqTn?si=f5e2bef05a224620",
+  },
+  {
+    name: "Freedom",
+    link: "https://open.spotify.com/track/740cmV4DyAuleXnqBi6lrZ?si=7b36d8243c9743c1",
+  },
+
+  { name: "Freedom", link: "" },
+  { name: "Freedom", link: "" },
+  { name: "Freedom", link: "" },
+  { name: "Freedom", link: "" },
+  { name: "Freedom", link: "" },
+  { name: "Freedom", link: "" },
 ];
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";

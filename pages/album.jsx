@@ -82,12 +82,11 @@ export default function Album() {
           >
             <Masonry gutter="10px">
               {album.map((image, i) => (
-                <Zoom>
+                <Zoom key={i}>
                   <Image
                     as={motion.img}
                     whileHover={{ scale: 1.02 }}
                     boxShadow={"5px 5px 0px #1111116b"}
-                    key={i}
                     objectFit={"cover"}
                     borderRadius="md"
                     src={image}
