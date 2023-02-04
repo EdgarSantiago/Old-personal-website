@@ -1,5 +1,7 @@
 import {
   Button,
+  Flex,
+  Icon,
   List,
   ListIcon,
   ListItem,
@@ -40,7 +42,7 @@ export default function CustomModal() {
           <List spacing={3}>
             <ListItem>
               <ListIcon as={FaMemory} color="green.500" />
-              32gb ram ddr4 3200mhz
+              24gb ram ddr4 3200mhz
             </ListItem>
             <ListItem>
               <ListIcon as={BsCpu} color="green.500" />
@@ -52,8 +54,8 @@ export default function CustomModal() {
             </ListItem>
             {/* You can also use custom icons from react-icons */}
             <ListItem>
-              <ListIcon as={MdOutlineSdStorage} color="green.500" />1 nvme 512GB
-              and 1 nvme 1T
+              <ListIcon as={MdOutlineSdStorage} color="green.500" />1 NVMe SSD
+              de 512 GB e 1 NVMe SSD de 1 TB
             </ListItem>
           </List>
         </ModalBody>
@@ -92,15 +94,20 @@ export default function CustomModal() {
 
   return (
     <>
-      <Button
+      <Flex
         onClick={() => {
           setOverlay(<OverlayOne />);
           onOpen();
         }}
+        align="center"
+        justify={"center"}
+        w="100%"
+        h="100%"
       >
-        My pc
-      </Button>
-      <Button
+        <Icon w={6} h={6} size="sm" as={BsCpu} />
+        <Text ml={2}>Meu pc</Text>
+      </Flex>
+      {/*<Button
         ml="4"
         onClick={() => {
           setOverlay(<OverlayTwo />);
@@ -108,7 +115,7 @@ export default function CustomModal() {
         }}
       >
         Use Overlay two
-      </Button>
+      </Button>*/}
       <Modal isCentered isOpen={isOpen} onClose={onClose}>
         {overlay}
       </Modal>

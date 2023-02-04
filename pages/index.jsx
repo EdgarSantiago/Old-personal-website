@@ -82,7 +82,7 @@ export default function Home() {
 
   const toast = useToast({
     position: "top",
-    title: "Em breve",
+    title: "Em desenvolvimento",
   });
   useEffect(() => {
     const currentDate = new Date();
@@ -152,14 +152,13 @@ export default function Home() {
         <FirstGrid />
         <Flex flexDirection={"column"} height="100%" justify="center">
           <SimpleGrid columns={2} spacing={5} mb={5}>
-            <CustomModal />
             <TransparentCard padding="20px">
               <Flex
-                //onClick={() => {
-                //  toast({
-                //    status: "warning",
-                //  });
-                //}}
+                onClick={() => {
+                  toast({
+                    status: "warning",
+                  });
+                }}
                 direction={"column"}
                 h="100%"
                 justify="center"
@@ -238,10 +237,12 @@ export default function Home() {
             </Link>
 
             <TransparentCard>
-              <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="sm" as={BsMusicNoteBeamed} />
-                <Text ml={2}>Músicas</Text>
-              </Flex>
+              <Link href="/minhasmusicas">
+                <Flex align="center" justify={"center"} w="100%" h="100%">
+                  <Icon w={6} h={6} size="sm" as={BsMusicNoteBeamed} />
+                  <Text ml={2}>Músicas</Text>
+                </Flex>
+              </Link>
             </TransparentCard>
 
             <TransparentCard>
@@ -270,10 +271,7 @@ export default function Home() {
             </Link>
 
             <TransparentCard>
-              <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="sm" as={BsCpu} />
-                <Text ml={2}>Meu pc</Text>
-              </Flex>
+              <CustomModal />
             </TransparentCard>
 
             <TransparentCard>

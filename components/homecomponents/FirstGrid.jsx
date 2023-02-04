@@ -37,6 +37,7 @@ import {
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { FaSteam } from "react-icons/fa";
 
 export default function FirstGrid() {
   const [buttonHover, setButtonHover] = useState("");
@@ -154,6 +155,17 @@ export default function FirstGrid() {
               color="whatsapp.500"
               aria-label="Add to friends"
               icon={<BsWhatsapp />}
+            />
+          </Link>
+
+          <Link href="https://steamcommunity.com/id/3dv7n/">
+            <IconButton
+              onMouseEnter={() => setButtonHover("Minha steam ~")}
+              onMouseLeave={() => setButtonHover("")}
+              bg={"ghost"}
+              color="black.500"
+              aria-label="Add to friends"
+              icon={<FaSteam />}
             />
           </Link>
           {/*<IconButton
