@@ -117,7 +117,7 @@ export default function Home() {
       border="2px solid #111111"
       rounded="md"
       boxShadow={"10px 10px 0px #1111116b"}
-      height={["100%", "100%", "100%", "100%", "90vh"]}
+      height={"100%"}
       style={{
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -151,7 +151,7 @@ export default function Home() {
       >
         <FirstGrid />
         <Flex flexDirection={"column"} height="100%" justify="center">
-          <SimpleGrid columns={2} spacing={5} mb={5}>
+          <SimpleGrid columns={2} spacing={[2, 2, 2, 2, 5]} mb={5}>
             <TransparentCard padding="20px">
               <Flex
                 onClick={() => {
@@ -166,7 +166,7 @@ export default function Home() {
               >
                 <HStack mb="3" spacing={5} justify={"center"}>
                   <Button size="xs" colorScheme={"whiteAlpha"}>
-                    Conecte seu spotify
+                    Minha playlist
                   </Button>
                 </HStack>
                 <HStack mb="3" spacing={[2, 2, 2, 5]} justify={"center"}>
@@ -222,7 +222,7 @@ export default function Home() {
           <SimpleGrid
             w="100%"
             columns={[1, 1, 2, 2, 4]}
-            spacing={[2, 2, 5, 5, 5]}
+            spacing={[2, 2, 2, 2, 5]}
             mb={5}
           >
             <Link href="/album">
@@ -230,7 +230,7 @@ export default function Home() {
                 <TransparentCard>
                   <Flex align="center" justify={"center"} w="100%" h="100%">
                     <Icon w={6} h={6} size="sm" as={BsFileImage} />
-                    <Text ml={2}>Album de fotos</Text>
+                    <Text ml={2}>Fotos</Text>
                   </Flex>
                 </TransparentCard>
               </Box>
@@ -274,12 +274,16 @@ export default function Home() {
               <CustomModal />
             </TransparentCard>
 
-            <TransparentCard>
-              <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="sm" as={TbWorld} />
-                <Text ml={2}>Habilidades</Text>
-              </Flex>
-            </TransparentCard>
+            <Link href="/skills">
+              <Box>
+                <TransparentCard>
+                  <Flex align="center" justify={"center"} w="100%" h="100%">
+                    <Icon w={6} h={6} size="sm" as={TbWorld} />
+                    <Text ml={2}>Habilidades</Text>
+                  </Flex>
+                </TransparentCard>
+              </Box>
+            </Link>
 
             <TransparentCard>
               <Flex align="center" justify={"center"} w="100%" h="100%">

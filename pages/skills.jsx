@@ -66,7 +66,7 @@ import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
 
-export default function Album() {
+export default function Skills() {
   const [musics, setGames] = useState([""]);
 
   useEffect(() => {
@@ -99,8 +99,8 @@ export default function Album() {
             </BreadcrumbItem>
 
             <BreadcrumbItem>
-              <Link href={"/meusjogos"}>
-                <BreadcrumbLink>Meus Jogos favoritos</BreadcrumbLink>
+              <Link href={"/skills"}>
+                <BreadcrumbLink>Minhas skills</BreadcrumbLink>
               </Link>
             </BreadcrumbItem>
           </Breadcrumb>

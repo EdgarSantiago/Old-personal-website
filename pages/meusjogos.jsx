@@ -53,7 +53,7 @@ export default function Album() {
         rounded="md"
         boxShadow={"10px 10px 0px #1111116b"}
         border="2px solid #111111"
-        w="50%"
+        w={["90%", "80%", "80%", "50%"]}
         mx="auto"
         h="100%"
         columns={[1, 1, 1, 2, 2]}
@@ -61,7 +61,7 @@ export default function Album() {
       >
         <Box p={2} borderBottom="2px solid #111111">
           <Breadcrumb
-            px={10}
+            px={[0, 4, 4, 5, 10]}
             fontSize={"xl"}
             spacing="8px"
             separator={<ChevronRightIcon color="red.500" />}
@@ -79,7 +79,7 @@ export default function Album() {
             </BreadcrumbItem>
           </Breadcrumb>
         </Box>
-        <OrderedList spacing={2} fontSize="2xl" py={5} px={10}>
+        <OrderedList spacing={5} fontSize="2xl" py={5} px={[0, 4, 4, 5, 10]}>
           {games.map((game, i) => (
             <Link key={i} href="">
               <ListItem
