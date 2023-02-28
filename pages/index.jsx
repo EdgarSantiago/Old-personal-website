@@ -113,199 +113,165 @@ export default function Home() {
   }, [currentImage]);
 
   return (
-    <Box
-      border="2px solid #111111"
-      rounded="md"
-      boxShadow={"10px 10px 0px #1111116b"}
-      height={"100%"}
-      style={{
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-      }}
-      backgroundSize="cover"
-      backgroundImage={`linear-gradient(
+    <Layout title="Início">
+      <Box
+        border="2px solid #111111"
+        rounded="md"
+        boxShadow={"10px 10px 0px #1111116b"}
+        height={["100%", "100%", "100%", "100vh"]}
+        backgroundPosition="center"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+        backgroundImage={`linear-gradient(
       to bottom,
     #39353589,
       #39353589
     ),url(${currentImage})});`}
-    >
-      <Box rounded="sm" bg="#fafafa" p={2} borderBottom="2px solid #111111">
-        <Breadcrumb
-          px={10}
-          fontSize={"xl"}
-          spacing="8px"
-          separator={<ChevronRightIcon color="red.500" />}
-        >
-          <BreadcrumbItem>
-            <Link href={"/"}>
-              <BreadcrumbLink>Início</BreadcrumbLink>
-            </Link>
-          </BreadcrumbItem>
-        </Breadcrumb>
-      </Box>
-      <SimpleGrid
-        h="100%"
-        columns={[1, 1, 1, 2, 2]}
-        spacing={5}
-        p={[2, 5, 5, 10]}
       >
-        <FirstGrid />
-        <Flex flexDirection={"column"} height="100%" justify="center">
-          <SimpleGrid columns={2} spacing={[2, 2, 2, 2, 5]} mb={5}>
-            <TransparentCard padding="20px">
-              <Flex
-                onClick={() => {
-                  toast({
-                    status: "warning",
-                  });
-                }}
-                direction={"column"}
-                h="100%"
-                justify="center"
-                textAlign={"center"}
-              >
-                <HStack mb="3" spacing={5} justify={"center"}>
-                  <Button size="xs" colorScheme={"whiteAlpha"}>
-                    Minha playlist
-                  </Button>
-                </HStack>
-                <HStack mb="3" spacing={[2, 2, 2, 5]} justify={"center"}>
-                  <IconButton
-                    colorScheme={"whiteAlpha"}
-                    icon={<TbPlayerSkipBack />}
-                  />
-                  <IconButton
-                    id="togglePlay"
-                    colorScheme={"whiteAlpha"}
-                    icon={<TbPlayerPlay />}
-                    size="lg"
-                    fontSize="2xl"
-                  />
-                  <IconButton
-                    colorScheme={"whiteAlpha"}
-                    icon={<TbPlayerSkipForward />}
-                  />
-                </HStack>
-                <Box>
-                  <SliderThumbWithTooltip />
-                </Box>
-                <Text fontSize="lg" mx={[0, 0, 2, 4, 8]}>
-                  Cantor - nome da música
-                </Text>
-              </Flex>
-            </TransparentCard>
-            <TransparentCard>
-              <Flex
-                direction={"column"}
-                h="100%"
-                justify="center"
-                textAlign={"center"}
-              >
-                <Text fontSize="sm">{date}</Text>
-                <Text fontSize={["3xl", "5xl"]} fontWeight="bold">
-                  {time}
-                </Text>
-                <Text fontSize="sm" mx={[0, 0, 0, 4, 8]}>
-                  Com organização e tempo, acha-se o segredo de fazer tudo e bem
-                  feito.
-                </Text>
-              </Flex>
-            </TransparentCard>
-          </SimpleGrid>
-
-          <Box color="white" mb={2}>
-            <Flex w="100%" h="100%">
-              <Icon w={6} h={6} size="lg" as={BsLink45Deg} />
-              <Text ml={2}>Lista de links</Text>
-            </Flex>
-          </Box>
-          <SimpleGrid
-            w="100%"
-            columns={[1, 1, 2, 2, 4]}
-            spacing={[2, 2, 2, 2, 5]}
-            mb={5}
+        <Box rounded="sm" bg="#fafafa" p={2} borderBottom="2px solid #111111">
+          <Breadcrumb
+            px={5}
+            fontSize={"xl"}
+            spacing="8px"
+            separator={<ChevronRightIcon color="red.500" />}
           >
-            <Link href="/album">
-              <Box>
-                <TransparentCard>
-                  <Flex align="center" justify={"center"} w="100%" h="100%">
-                    <Icon w={6} h={6} size="sm" as={BsFileImage} />
-                    <Text ml={2}>Fotos</Text>
-                  </Flex>
-                </TransparentCard>
-              </Box>
-            </Link>
-
-            <TransparentCard>
-              <Link href="/minhasmusicas">
-                <Flex align="center" justify={"center"} w="100%" h="100%">
-                  <Icon w={6} h={6} size="sm" as={BsMusicNoteBeamed} />
-                  <Text ml={2}>Músicas</Text>
-                </Flex>
+            <BreadcrumbItem>
+              <Link href={"/"}>
+                <BreadcrumbLink>Início</BreadcrumbLink>
               </Link>
-            </TransparentCard>
+            </BreadcrumbItem>
+          </Breadcrumb>
+        </Box>
+        <SimpleGrid
+          h="100%"
+          columns={[1, 1, 1, 2, 2]}
+          spacing={5}
+          p={[2, 5, 5, 10]}
+        >
+          <FirstGrid />
+          <Flex flexDirection={"column"} height="100%" justify="center">
+            <SimpleGrid columns={2} spacing={[2, 2, 2, 2, 5]} mb={5}>
+              <TransparentCard padding="20px">
+                <Flex
+                  onClick={() => {
+                    toast({
+                      status: "warning",
+                    });
+                  }}
+                  direction={"column"}
+                  h="100%"
+                  justify="center"
+                  textAlign={"center"}
+                >
+                  <HStack mb="3" spacing={5} justify={"center"}>
+                    <Button size="xs" colorScheme={"whiteAlpha"}>
+                      Minha playlist
+                    </Button>
+                  </HStack>
+                  <HStack mb="3" spacing={[2, 2, 2, 5]} justify={"center"}>
+                    <IconButton
+                      colorScheme={"whiteAlpha"}
+                      icon={<TbPlayerSkipBack />}
+                    />
+                    <IconButton
+                      id="togglePlay"
+                      colorScheme={"whiteAlpha"}
+                      icon={<TbPlayerPlay />}
+                      size="lg"
+                      fontSize="2xl"
+                    />
+                    <IconButton
+                      colorScheme={"whiteAlpha"}
+                      icon={<TbPlayerSkipForward />}
+                    />
+                  </HStack>
+                  <Box>
+                    <SliderThumbWithTooltip />
+                  </Box>
+                  <Text fontSize="lg" mx={[0, 0, 2, 4, 8]}>
+                    Cantor - nome da música
+                  </Text>
+                </Flex>
+              </TransparentCard>
+              <TransparentCard>
+                <Flex
+                  direction={"column"}
+                  h="100%"
+                  justify="center"
+                  textAlign={"center"}
+                >
+                  <Text fontSize="sm">{date}</Text>
+                  <Text fontSize={["3xl", "5xl"]} fontWeight="bold">
+                    {time}
+                  </Text>
+                  <Text fontSize="sm" mx={[0, 0, 0, 4, 8]}>
+                    Com organização e tempo, acha-se o segredo de fazer tudo e
+                    bem feito.
+                  </Text>
+                </Flex>
+              </TransparentCard>
+            </SimpleGrid>
 
-            <TransparentCard>
-              <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="sm" as={FaBlog} />
-                <Text ml={2}>Blog</Text>
+            <Box color="white" mb={2}>
+              <Flex w="100%" h="100%">
+                <Icon w={6} h={6} size="lg" as={BsLink45Deg} />
+                <Text ml={2}>Lista de links</Text>
               </Flex>
-            </TransparentCard>
+            </Box>
+            <SimpleGrid
+              w="100%"
+              columns={[1, 1, 2, 2, 4]}
+              spacing={[2, 2, 2, 2, 5]}
+              mb={5}
+            >
+              <Link href="/album">
+                <Box>
+                  <TransparentCard>
+                    <Flex align="center" justify={"center"} w="100%" h="100%">
+                      <Icon w={6} h={6} size="sm" as={BsFileImage} />
+                      <Text ml={2}>Fotos</Text>
+                    </Flex>
+                  </TransparentCard>
+                </Box>
+              </Link>
 
-            <TransparentCard>
-              <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="sm" as={TbWorld} />
-                <Text ml={2}>Websites</Text>
+              <TransparentCard>
+                <CustomModal />
+              </TransparentCard>
+
+              <Link href="/skills">
+                <Box>
+                  <TransparentCard>
+                    <Flex align="center" justify={"center"} w="100%" h="100%">
+                      <Icon w={6} h={6} size="sm" as={TbWorld} />
+                      <Text ml={2}>Habilidades</Text>
+                    </Flex>
+                  </TransparentCard>
+                </Box>
+              </Link>
+
+              <TransparentCard>
+                <Flex align="center" justify={"center"} w="100%" h="100%">
+                  <Icon w={6} h={6} size="sm" as={MdWorkOutline} />
+                  <Text ml={2}>Meu trabalho</Text>
+                </Flex>
+              </TransparentCard>
+            </SimpleGrid>
+            <Box color="white" mb={2}>
+              <Flex w="100%" h="100%">
+                <Icon w={4} h={4} size="sm" as={BsGithub} />
+                <Text ml={2}>Minhas contribuições</Text>
               </Flex>
-            </TransparentCard>
-
-            <Link href="/meusjogos">
-              <Box>
-                <TransparentCard>
-                  <Flex align="center" justify={"center"} w="100%" h="100%">
-                    <Icon w={6} h={6} size="sm" as={IoGameControllerOutline} />
-                    <Text ml={2}>Meus jogos</Text>
-                  </Flex>
-                </TransparentCard>
-              </Box>
-            </Link>
-
-            <TransparentCard>
-              <CustomModal />
-            </TransparentCard>
-
-            <Link href="/skills">
-              <Box>
-                <TransparentCard>
-                  <Flex align="center" justify={"center"} w="100%" h="100%">
-                    <Icon w={6} h={6} size="sm" as={TbWorld} />
-                    <Text ml={2}>Habilidades</Text>
-                  </Flex>
-                </TransparentCard>
-              </Box>
-            </Link>
-
-            <TransparentCard>
-              <Flex align="center" justify={"center"} w="100%" h="100%">
-                <Icon w={6} h={6} size="sm" as={MdWorkOutline} />
-                <Text ml={2}>Meu trabalho</Text>
-              </Flex>
-            </TransparentCard>
-          </SimpleGrid>
-          <Box color="white" mb={2}>
-            <Flex w="100%" h="100%">
-              <Icon w={4} h={4} size="sm" as={BsGithub} />
-              <Text ml={2}>Minhas contribuições</Text>
-            </Flex>
-          </Box>
-          <Box>
-            <TransparentCard>
-              <GitHubCalendar username="EdgarSantiago" color="#c92828d0" />
-            </TransparentCard>
-          </Box>
-        </Flex>
-      </SimpleGrid>
-    </Box>
+            </Box>
+            <Box>
+              <TransparentCard>
+                <GitHubCalendar username="EdgarSantiago" color="#c92828d0" />
+              </TransparentCard>
+            </Box>
+          </Flex>
+        </SimpleGrid>
+      </Box>
+    </Layout>
   );
 }
 

@@ -25,3 +25,8 @@ export default function FramerBox({ children }) {
     </ChakraBox>
   );
 }
+
+export const StyledBox = chakra(motion.div, {
+  shouldForwardProp: (prop) =>
+    isValidMotionProp(prop) || shouldForwardProp(prop),
+});

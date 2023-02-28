@@ -8,12 +8,9 @@ export default class Document extends NextDocument {
     return (
       <Html lang="pt">
         <Head />
-
-        <body style={{ margin: "0 !important" }}>
-          <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-          <Main />
-          <NextScript />
-        </body>
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <Main />
+        <NextScript />
       </Html>
     );
   }

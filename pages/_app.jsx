@@ -8,22 +8,12 @@ if (typeof window !== "undefined") {
   window.history.scrollRestoration = "manual";
 }
 
-function Website({ Component, pageProps, router }) {
+function Website({ Component, pageProps, router, ip }) {
   return (
     <Chakra cookies={pageProps.cookies}>
       <Fonts />
       <Main router={router}>
-        <AnimatePresence
-          mode="wait"
-          initial={true}
-          onExitComplete={() => {
-            if (typeof window !== "undefined") {
-              window.scrollTo({ top: 0 });
-            }
-          }}
-        >
-          <Component {...pageProps} key={router.route} />
-        </AnimatePresence>
+        <Component {...pageProps} key={router.asPath} />
       </Main>
     </Chakra>
   );

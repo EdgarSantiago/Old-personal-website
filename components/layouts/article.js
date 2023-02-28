@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import Head from "next/head";
 
 const variants = {
@@ -11,24 +11,21 @@ const Layout = ({ children, title }) => {
   const t = `${title} - Edgar Santiago`;
   return (
     <motion.article
+      variants={variants}
+      exit="exit"
       initial="hidden"
       animate="enter"
-      exit="exit"
-      variants={variants}
-      transition={{ duration: 0.4, type: "easeInOut" }}
+      transition={{ duration: 0.5, type: "easeInOut" }}
       style={{ position: "relative" }}
-      height="100vh"
     >
-      <>
-        {title && (
-          <Head>
-            <title>{t}</title>
-            <meta name="twitter:title" content={t} />
-            <meta property="og:title" content={t} />
-          </Head>
-        )}
-        {children}
-      </>
+      {title && (
+        <Head>
+          <title>{t}</title>
+          <meta name="twitter:title" content={t} />
+          <meta property="og:title" content={t} />
+        </Head>
+      )}
+      {children}
     </motion.article>
   );
 };

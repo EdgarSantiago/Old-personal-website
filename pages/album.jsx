@@ -37,6 +37,7 @@ const listImgs = [
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
+import Layout from "../components/layouts/article";
 
 export default function Album() {
   const [album, setAlbum] = useState([""]);
@@ -47,56 +48,57 @@ export default function Album() {
 
   return (
     <>
-      <Box
-        rounded="md"
-        boxShadow={"10px 10px 0px #1111116b"}
-        border="2px solid #111111"
-        w="100%"
-        h="100%"
-        columns={[1, 1, 1, 2, 2]}
-        spacing={5}
-      >
-        <Box p={2} borderBottom="2px solid #111111">
-          <Breadcrumb
-            px={10}
-            fontSize={"xl"}
-            spacing="8px"
-            separator={<ChevronRightIcon color="red.500" />}
-          >
-            <BreadcrumbItem>
-              <Link href={"/"}>
-                <BreadcrumbLink>Início</BreadcrumbLink>
-              </Link>
-            </BreadcrumbItem>
+      <Layout title="Album">
+        <Box
+          rounded="md"
+          bg="#111111"
+          w="100%"
+          minH="100vh"
+          columns={[1, 1, 1, 2, 2]}
+          spacing={5}
+        >
+          <Box rounded="md" bg="white" p={2} borderBottom="2px solid #111111">
+            <Breadcrumb
+              px={5}
+              fontSize={"xl"}
+              spacing="8px"
+              separator={<ChevronRightIcon color="red.500" />}
+            >
+              <BreadcrumbItem>
+                <Link href={"/"}>
+                  <BreadcrumbLink>Início</BreadcrumbLink>
+                </Link>
+              </BreadcrumbItem>
 
-            <BreadcrumbItem>
-              <Link href={"/album"}>
-                <BreadcrumbLink>Album</BreadcrumbLink>
-              </Link>
-            </BreadcrumbItem>
-          </Breadcrumb>
+              <BreadcrumbItem>
+                <Link href={"/album"}>
+                  <BreadcrumbLink>Album</BreadcrumbLink>
+                </Link>
+              </BreadcrumbItem>
+            </Breadcrumb>
+          </Box>
+          <Box p={5}>
+            <ResponsiveMasonry
+              columnsCountBreakPoints={{ 350: 3, 750: 5, 900: 6, 1500: 8 }}
+            >
+              <Masonry gutter="10px">
+                {album.map((image, i) => (
+                  <Zoom key={i}>
+                    <Image
+                      as={motion.img}
+                      whileHover={{ scale: 1.02 }}
+                      boxShadow={"5px 5px 0px #1111116b"}
+                      objectFit={"cover"}
+                      borderRadius="md"
+                      src={image}
+                    />
+                  </Zoom>
+                ))}
+              </Masonry>
+            </ResponsiveMasonry>
+          </Box>
         </Box>
-        <Box p={5}>
-          <ResponsiveMasonry
-            columnsCountBreakPoints={{ 350: 3, 750: 5, 900: 6, 1500: 8 }}
-          >
-            <Masonry gutter="10px">
-              {album.map((image, i) => (
-                <Zoom key={i}>
-                  <Image
-                    as={motion.img}
-                    whileHover={{ scale: 1.02 }}
-                    boxShadow={"5px 5px 0px #1111116b"}
-                    objectFit={"cover"}
-                    borderRadius="md"
-                    src={image}
-                  />
-                </Zoom>
-              ))}
-            </Masonry>
-          </ResponsiveMasonry>
-        </Box>
-      </Box>
+      </Layout>
     </>
   );
 }

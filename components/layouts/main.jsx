@@ -5,6 +5,8 @@ import Navbar from "../Navbar";
 import Footer from "../Footer";
 import Banner from "../Banner";
 import { useEffect, useState } from "react";
+import ParticlesBack from "./ParticlesBack";
+import Loading from "./Loading";
 
 const Main = ({ children, router }) => {
   return (
@@ -21,11 +23,14 @@ const Main = ({ children, router }) => {
       }}
       backgroundSize="100% 100%"
       backgroundImage={`linear-gradient(
-      to bottom,
-    #fafafa,
-      #fafafa
+      to right,
+    #010101,
+      #000000
     ),url('')});`}
+      position="relative"
     >
+      <Loading />
+      <ParticlesBack />
       {children}
     </Container>
   );

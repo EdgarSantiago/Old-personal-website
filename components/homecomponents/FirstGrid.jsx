@@ -55,7 +55,7 @@ export default function FirstGrid() {
         <Box as={motion.div} whileHover={{ rotateY: 180 }}>
           <Avatar
             filter="hue-rotate(-280deg) grayscale(50%)"
-            shadow="xl"
+            boxShadow="4px 4px 0px #260404b8"
             size="2xl"
             name="Edgar Santiago"
             src="https://camo.githubusercontent.com/fc59303e8d7b2854316f6e51f024184132a25b7377164a6a7a5c80dd83bf6230/68747470733a2f2f692e70696e696d672e636f6d2f6f726967696e616c732f30392f63362f32392f30396336323930336265656261333336646339646137366562356339613130372e676966"
@@ -113,7 +113,8 @@ export default function FirstGrid() {
             Hello World!
           </Heading>
           <Text>
-            -- Um site construído no século 21, vivendo na borda da internet
+            -- Há uma grande diferença entre saber o caminho e percorrer o
+            caminho.
           </Text>
         </Box>
       </Flex>

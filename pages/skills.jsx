@@ -4,6 +4,7 @@ import {
   BreadcrumbItem,
   BreadcrumbLink,
   Button,
+  Divider,
   Flex,
   Grid,
   Heading,
@@ -11,6 +12,11 @@ import {
   ListItem,
   OrderedList,
   SimpleGrid,
+  Slider,
+  SliderFilledTrack,
+  SliderMark,
+  SliderThumb,
+  SliderTrack,
   Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
@@ -19,75 +25,159 @@ import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
 
 import Appledn from "../public/album/appledn.jpg";
+import {
+  SiChakraui,
+  SiPython,
+  SiStyledcomponents,
+  SiTailwindcss,
+  SiTypescript,
+} from "react-icons/si";
+import { AiFillHtml5 } from "react-icons/ai";
+import { FcLinux } from "react-icons/fc";
+import { DiMongodb, DiMysql } from "react-icons/di";
 
-const listGames = [
+const listSkills = [
   {
-    name: "Elegy - Aiden Francis",
-    link: "https://open.spotify.com/track/3UVgonk4NH31CULlJejqxM?si=aaa51fa928ac4811",
+    name: "Javascript",
+    time: "5 anos",
+    value: 100,
+    icon: <IoLogoJavascript />,
   },
   {
-    name: "The flow - Harrison BDP",
-    link: "https://open.spotify.com/track/6XEtddxACgaM3ykcvgoIAw?si=3729df28da574f99",
-  },
-  {
-    name: "Donkey Therapy",
-    link: "https://open.spotify.com/track/4W7S8MCpWe7yIljNlQWmac?si=bbed92a24a524377",
-  },
-  {
-    name: "Ride - Rocksted and Bellatrix",
-    link: "https://open.spotify.com/track/5kh0tYKfO0i8MXqpPiyE1b?si=9d629a969e6b45cf",
-  },
-  {
-    name: "Porno - B from E",
-    link: "https://open.spotify.com/track/19vpR4VM4kMiOkssMEEU0S?si=14d93af0749c432e",
-  },
-  {
-    name: "Goodbye - Dj Cinema",
-    link: "https://open.spotify.com/track/5Ips2rawNAfzMMEuPM0jsT?si=f573554f1f574f7f",
-  },
-  {
-    name: "Thai Take Away ",
-    link: "https://open.spotify.com/track/47jPtQs9LRiVLZG4t9GqTn?si=f5e2bef05a224620",
-  },
-  {
-    name: "Freedom",
-    link: "https://open.spotify.com/track/740cmV4DyAuleXnqBi6lrZ?si=7b36d8243c9743c1",
+    name: "Typescript",
+    time: "3 anos",
+    value: 80,
+    icon: <SiTypescript />,
   },
 
-  { name: "Freedom", link: "" },
-  { name: "Freedom", link: "" },
-  { name: "Freedom", link: "" },
-  { name: "Freedom", link: "" },
-  { name: "Freedom", link: "" },
-  { name: "Freedom", link: "" },
+  {
+    name: "Html",
+    time: "7 anos",
+    value: 100,
+    icon: <AiFillHtml5 />,
+  },
+  {
+    name: "Css",
+    time: "7 anos",
+    value: 100,
+    icon: <AiFillHtml5 />,
+  },
+  {
+    name: "React Native",
+    time: "2 anos",
+    value: 100,
+    icon: <FaReact />,
+  },
+  {
+    name: "Reactjs",
+    time: "5 anos",
+    value: 100,
+    icon: <FaReact />,
+  },
+
+  {
+    name: "Nextjs",
+    time: "2 anos",
+    value: 100,
+    icon: <TbBrandNextjs />,
+  },
+
+  {
+    name: "Nodejs",
+    time: "5 anos",
+    value: 80,
+    icon: <IoLogoNodejs />,
+  },
+
+  {
+    name: "Bootstrap",
+    time: "4 anos",
+    value: 100,
+    icon: <TbBrandBootstrap />,
+  },
+  {
+    name: "Tailwind",
+    time: "1 anos",
+    value: 50,
+    icon: <SiTailwindcss />,
+  },
+  {
+    name: "ChakraUI",
+    time: "2 anos",
+    value: 100,
+    icon: <SiChakraui />,
+  },
+  {
+    name: "Styled-Components",
+    time: "5 anos",
+    value: 100,
+    icon: <SiStyledcomponents />,
+  },
+
+  {
+    name: "Python",
+    time: "5 anos",
+    value: 80,
+    icon: <SiPython />,
+  },
+
+  {
+    name: "Linux",
+    time: "4 anos",
+    value: 100,
+    icon: <FcLinux />,
+  },
+  {
+    name: "MongoDb",
+    time: "4 anos",
+    value: 100,
+    icon: <DiMongodb />,
+  },
+  {
+    name: "MySql",
+    time: "4 anos",
+    value: 60,
+    icon: <DiMysql />,
+  },
 ];
 
 import Masonry, { ResponsiveMasonry } from "react-responsive-masonry";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import { motion } from "framer-motion";
+import { IoLogoJavascript, IoLogoNodejs } from "react-icons/io5";
+import { FaReact } from "react-icons/fa";
+import { TbBrandBootstrap, TbBrandNextjs } from "react-icons/tb";
+import Layout from "../components/layouts/article";
 
 export default function Skills() {
-  const [musics, setGames] = useState([""]);
+  const [skills, setSkills] = useState([""]);
 
   useEffect(() => {
-    setGames(listGames);
+    setSkills(listSkills);
   }, []);
 
   return (
-    <>
+    <Layout title="Habilidades">
       <Box
         rounded="md"
-        boxShadow={"10px 10px 0px #1111116b"}
         border="2px solid #111111"
-        w={["90%", "80%", "80%", "50%"]}
+        w={["100%"]}
         mx="auto"
-        h="100%"
+        minH="100%"
         columns={[1, 1, 1, 2, 2]}
         spacing={5}
+        backgroundPosition="right"
+        backgroundRepeat="no-repeat"
+        backgroundSize="cover"
+        backgroundImage={`linear-gradient(
+      to right,
+    #111111,
+      #111111
+    ),url('')});`}
       >
-        <Box p={2} borderBottom="2px solid #111111">
+        <Box rounded="md" bg="white" p={2} borderBottom="2px solid #111111">
           <Breadcrumb
-            px={[2, 4, 4, 5, 10]}
+            px={[5]}
             fontSize={"xl"}
             spacing="8px"
             separator={<ChevronRightIcon color="red.500" />}
@@ -100,30 +190,55 @@ export default function Skills() {
 
             <BreadcrumbItem>
               <Link href={"/skills"}>
-                <BreadcrumbLink>Minhas skills</BreadcrumbLink>
+                <BreadcrumbLink>Minhas habilidades</BreadcrumbLink>
               </Link>
             </BreadcrumbItem>
           </Breadcrumb>
         </Box>
-        <OrderedList spacing={5} fontSize="2xl" py={5} px={[0, 4, 4, 5, 10]}>
-          {musics.map((music, i) => (
-            <ListItem
-              whileHover={{
-                scale: 1.01,
-              }}
-              display="block"
-              as={motion.li}
+        <SimpleGrid
+          columns={[1, 1, 1, 2, 2]}
+          gap={2}
+          py={5}
+          px={8}
+          color="white"
+        >
+          {skills.map((skill, i) => (
+            <Box
+              _hover={{ backgroundColor: "#da9f9f43" }}
+              fontSize={"18px"}
+              px={4}
+              py={8}
+              rounded="md"
+              display="flex"
+              gap={4}
               key={i}
+              justifyContent="center"
+              alignItems="center"
             >
-              <Link href={`${music.link}`} passHref>
-                <a target="_blank" rel="noopener noreferrer">
-                  {music.name}
-                </a>
-              </Link>
-            </ListItem>
+              <Box>{skill.icon}</Box>
+              <Box>{skill.name}</Box>
+              <Box>{skill.time}</Box>
+              <Slider aria-label="slider-ex-6" value={skill.value} w="40%">
+                <SliderMark
+                  value={skill.value}
+                  textAlign="center"
+                  mt="-25px"
+                  ml="-5"
+                  w="12"
+                  lineHeight={0.9}
+                  fontSize="14px"
+                >
+                  {skill.value}%
+                </SliderMark>
+                <SliderTrack>
+                  <SliderFilledTrack bg="#ff000084" />
+                </SliderTrack>
+                <SliderThumb />
+              </Slider>
+            </Box>
           ))}
-        </OrderedList>
+        </SimpleGrid>
       </Box>
-    </>
+    </Layout>
   );
 }
