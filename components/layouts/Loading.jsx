@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Spinner } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Spinner } from "@chakra-ui/react";
 import { AnimatePresence, motion, useViewportScroll } from "framer-motion";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -14,7 +14,7 @@ export default function Loading({ ip }) {
     setTimeout(() => {
       setIsLoaded(true);
       document.documentElement.style.overflowY = "scroll";
-    }, 2500);
+    }, 2000);
   }, []);
 
   return (
@@ -24,10 +24,10 @@ export default function Loading({ ip }) {
           initial={{ opacity: 1 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          transition={{ duration: "0.4", type: "easeInOut" }}
+          transition={{ duration: "0.5", type: "easeInOut" }}
           height="100vh"
           width="100%"
-          bg="#000000"
+          bg="#030303"
           position="absolute"
           top={0}
           left={0}
@@ -41,17 +41,14 @@ export default function Loading({ ip }) {
             direction="column"
             m="auto"
             justify="center"
+            textAlign="center"
           >
-            <Heading color="white" mb={5}>
-              Bem vindo {ip} aguarde
-            </Heading>
-            <Spinner
-              thickness="4px"
-              speed="0.3s"
-              emptyColor="red.200"
-              color="red.500"
-              size="xl"
-              alignSelf={"center"}
+            <Image
+              filter={"hue-rotate(200deg) saturate(200%)"}
+              src="https://media0.giphy.com/media/VseXvvxwowwCc/giphy.gif?cid=ecf05e47yve7xzbgl5edt75s00ig51fbsv2wd83glmn0v5vw&rid=giphy.gif&ct=g"
+              height="150px"
+              width="100%"
+              alt="loading"
             />
           </Flex>
         </StyledBox>

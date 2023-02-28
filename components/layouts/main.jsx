@@ -12,7 +12,7 @@ const Main = ({ children, router }) => {
   return (
     <Container
       as="main"
-      py="50px"
+      py="20px"
       px={["5px", "10px", "15px", "20px", "40px", "80px"]}
       maxW="100%"
       height="100%"
@@ -29,6 +29,23 @@ const Main = ({ children, router }) => {
     ),url('')});`}
       position="relative"
     >
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta
+        name="description"
+        content="Meu nome é Edgar e sou desenvolvedor com experiência em ReactJS, NextJS e TypeScript. Sou formado em Ciência da Computação e estou sempre em busca de novos desafios e aprendizados na área de tecnologia."
+      />
+      <meta name="author" content="Edgar Santiago" />
+      <meta
+        name="keywords"
+        content="edgar santiago, programador, dev, desenvolvedor, nextjs, criador de sites, edgarz, edgar, santiago"
+      />
+      <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      <meta name="twitter:title" content="Edgar Santiago" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="og:site_name" content="Edgar Santiago" />
+      <meta name="og:title" content="Edgar Santiago" />
+      <meta property="og:type" content="website" />
       <Loading />
       <ParticlesBack />
       {children}

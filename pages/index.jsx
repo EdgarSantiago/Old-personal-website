@@ -65,6 +65,7 @@ import SpotifyPlayer from "../components/SpotifyPlayer";
 import Script from "next/script";
 import CustomModal from "../components/CustomModal";
 import { ChevronRightIcon } from "@chakra-ui/icons";
+import ReactPlayer from "react-player";
 
 const backgroundImages = [
   "https://rare-gallery.com/uploads/posts/547224-landscape-wallpaper.gif",
@@ -115,9 +116,7 @@ export default function Home() {
   return (
     <Layout title="Início">
       <Box
-        border="2px solid #111111"
         rounded="md"
-        boxShadow={"10px 10px 0px #1111116b"}
         height={["100%", "100%", "100%", "100vh"]}
         backgroundPosition="center"
         backgroundRepeat="no-repeat"
@@ -128,9 +127,9 @@ export default function Home() {
       #39353589
     ),url(${currentImage})});`}
       >
-        <Box rounded="sm" bg="#fafafa" p={2} borderBottom="2px solid #111111">
+        <Box rounded="md" bg="white" p={2} borderBottom="2px solid #111111">
           <Breadcrumb
-            px={5}
+            px={2}
             fontSize={"xl"}
             spacing="8px"
             separator={<ChevronRightIcon color="red.500" />}
@@ -150,49 +149,8 @@ export default function Home() {
         >
           <FirstGrid />
           <Flex flexDirection={"column"} height="100%" justify="center">
-            <SimpleGrid columns={2} spacing={[2, 2, 2, 2, 5]} mb={5}>
-              <TransparentCard padding="20px">
-                <Flex
-                  onClick={() => {
-                    toast({
-                      status: "warning",
-                    });
-                  }}
-                  direction={"column"}
-                  h="100%"
-                  justify="center"
-                  textAlign={"center"}
-                >
-                  <HStack mb="3" spacing={5} justify={"center"}>
-                    <Button size="xs" colorScheme={"whiteAlpha"}>
-                      Minha playlist
-                    </Button>
-                  </HStack>
-                  <HStack mb="3" spacing={[2, 2, 2, 5]} justify={"center"}>
-                    <IconButton
-                      colorScheme={"whiteAlpha"}
-                      icon={<TbPlayerSkipBack />}
-                    />
-                    <IconButton
-                      id="togglePlay"
-                      colorScheme={"whiteAlpha"}
-                      icon={<TbPlayerPlay />}
-                      size="lg"
-                      fontSize="2xl"
-                    />
-                    <IconButton
-                      colorScheme={"whiteAlpha"}
-                      icon={<TbPlayerSkipForward />}
-                    />
-                  </HStack>
-                  <Box>
-                    <SliderThumbWithTooltip />
-                  </Box>
-                  <Text fontSize="lg" mx={[0, 0, 2, 4, 8]}>
-                    Cantor - nome da música
-                  </Text>
-                </Flex>
-              </TransparentCard>
+            <SimpleGrid columns={[1, 1, 1, 2]} spacing={[2, 2, 2, 2, 5]} mb={5}>
+              <MusicPlayer />
               <TransparentCard>
                 <Flex
                   direction={"column"}
@@ -220,7 +178,7 @@ export default function Home() {
             </Box>
             <SimpleGrid
               w="100%"
-              columns={[1, 1, 2, 2, 4]}
+              columns={[1, 1, 2, 2, 3]}
               spacing={[2, 2, 2, 2, 5]}
               mb={5}
             >
@@ -229,7 +187,7 @@ export default function Home() {
                   <TransparentCard>
                     <Flex align="center" justify={"center"} w="100%" h="100%">
                       <Icon w={6} h={6} size="sm" as={BsFileImage} />
-                      <Text ml={2}>Fotos</Text>
+                      <Text ml={2}>Album</Text>
                     </Flex>
                   </TransparentCard>
                 </Box>
@@ -249,13 +207,13 @@ export default function Home() {
                   </TransparentCard>
                 </Box>
               </Link>
-
+              {/*
               <TransparentCard>
                 <Flex align="center" justify={"center"} w="100%" h="100%">
                   <Icon w={6} h={6} size="sm" as={MdWorkOutline} />
                   <Text ml={2}>Meu trabalho</Text>
                 </Flex>
-              </TransparentCard>
+              </TransparentCard>*/}
             </SimpleGrid>
             <Box color="white" mb={2}>
               <Flex w="100%" h="100%">
@@ -303,5 +261,36 @@ function SliderThumbWithTooltip() {
         <SliderThumb />
       </Tooltip>
     </Slider>
+  );
+}
+
+function MusicPlayer() {
+  const url =
+    "https://www.youtube.com/watch?v=oRP-rsbv58s&ab_channel=PsychedelicUniverse";
+  const [timer, settimer] = useState();
+
+  useEffect(() => {
+    setTimeout(() => {
+      settimer(true);
+    }, 1500);
+  }, []);
+
+  return (
+    <TransparentCard padding="5px">
+      <Flex direction={"column"} h="100%" justify="center" textAlign={"center"}>
+        <HStack spacing={5} justify={"center"}></HStack>
+        {timer ? (
+          <ReactPlayer
+            style={{ borderRadius: "20px !important" }}
+            loop={true}
+            width={"100%"}
+            height="100%"
+            url={url}
+            playing={true}
+            controls={true}
+          />
+        ) : null}
+      </Flex>
+    </TransparentCard>
   );
 }

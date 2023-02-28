@@ -7,9 +7,7 @@ export default function TransparentCard({ children, padding = "10px" }) {
     <Box
       _hover={{ cursor: "pointer" }}
       as={motion.div}
-      initial={{ scale: 0, border: "1px solid white" }}
-      animate={{ scale: 1, border: "1px solid white" }}
-      whileHover={{ scale: 1.01, border: "1px solid #c92828d0" }}
+      initial={{ border: "1px solid white" }}
       transition="ease-in-out"
       p={padding}
       h="100%"

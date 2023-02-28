@@ -107,12 +107,6 @@ const listSkills = [
     value: 100,
     icon: <SiChakraui />,
   },
-  {
-    name: "Styled-Components",
-    time: "5 anos",
-    value: 100,
-    icon: <SiStyledcomponents />,
-  },
 
   {
     name: "Python",
@@ -177,7 +171,7 @@ export default function Skills() {
       >
         <Box rounded="md" bg="white" p={2} borderBottom="2px solid #111111">
           <Breadcrumb
-            px={[5]}
+            px={2}
             fontSize={"xl"}
             spacing="8px"
             separator={<ChevronRightIcon color="red.500" />}
@@ -199,13 +193,14 @@ export default function Skills() {
           columns={[1, 1, 1, 2, 2]}
           gap={2}
           py={5}
-          px={8}
+          px={[0, 0, 0, 4, 8]}
           color="white"
         >
           {skills.map((skill, i) => (
             <Box
-              _hover={{ backgroundColor: "#da9f9f43" }}
-              fontSize={"18px"}
+              _hover={{ backgroundColor: "#dccccc43" }}
+              transition="ease-in-out 0.4s"
+              fontSize={["14px", "18px"]}
               px={4}
               py={8}
               rounded="md"
