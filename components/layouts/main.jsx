@@ -7,12 +7,13 @@ import Banner from "../Banner";
 import { useEffect, useState } from "react";
 import ParticlesBack from "./ParticlesBack";
 import Loading from "./Loading";
+import MusicPlayer from "./MusicPlayer";
 
 const Main = ({ children, router }) => {
   return (
     <Container
       as="main"
-      py="20px"
+      py="50px"
       px={["5px", "10px", "15px", "20px", "40px", "80px"]}
       maxW="100%"
       height="100%"
@@ -47,7 +48,7 @@ const Main = ({ children, router }) => {
       <meta name="og:title" content="Edgar Santiago" />
       <meta property="og:type" content="website" />
       <Loading />
-      <ParticlesBack />
+      {/*<ParticlesBack />*/}
       {children}
     </Container>
   );

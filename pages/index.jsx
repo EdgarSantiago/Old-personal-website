@@ -26,6 +26,7 @@ import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
+  useTimeout,
 } from "@chakra-ui/react";
 import ParallaxText, { AnimeRockersParallax } from "../components/ParallaxTxt";
 import Notebook from "../components/Notebook";
@@ -66,6 +67,7 @@ import Script from "next/script";
 import CustomModal from "../components/CustomModal";
 import { ChevronRightIcon } from "@chakra-ui/icons";
 import ReactPlayer from "react-player";
+import MusicPlayer from "../components/layouts/MusicPlayer";
 
 const backgroundImages = [
   "https://rare-gallery.com/uploads/posts/547224-landscape-wallpaper.gif",
@@ -80,12 +82,17 @@ export default function Home() {
   const [buttonHover, setButtonHover] = useState("");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
+  const [count, setCount] = useState(0);
 
   const toast = useToast({
     position: "top",
     title: "Em desenvolvimento",
   });
   useEffect(() => {
+    setInterval(() => {
+      setCount(count + 1); // update the count state variable
+    }, 1000); //
+
     const currentDate = new Date();
     const dateOptions = {
       weekday: "long",
@@ -107,12 +114,13 @@ export default function Home() {
     );
     setDate(dateString);
     setTime(timeString);
+  }, [count]);
 
+  useEffect(() => {
     const randomIndex = Math.floor(Math.random() * backgroundImages.length);
     const randomImage = backgroundImages[randomIndex];
     setCurrentImage(randomImage);
-  }, [currentImage]);
-
+  }, []);
   return (
     <Layout title="Início">
       <Box
@@ -123,8 +131,8 @@ export default function Home() {
         backgroundSize="cover"
         backgroundImage={`linear-gradient(
       to bottom,
-    #39353589,
-      #39353589
+    #000000d8 10%,
+      #0000008a
     ),url(${currentImage})});`}
       >
         <Box rounded="md" bg="white" p={2} borderBottom="2px solid #111111">
@@ -150,7 +158,6 @@ export default function Home() {
           <FirstGrid />
           <Flex flexDirection={"column"} height="100%" justify="center">
             <SimpleGrid columns={[1, 1, 1, 2]} spacing={[2, 2, 2, 2, 5]} mb={5}>
-              <MusicPlayer />
               <TransparentCard>
                 <Flex
                   direction={"column"}
@@ -197,7 +204,7 @@ export default function Home() {
                 <CustomModal />
               </TransparentCard>
 
-              <Link href="/skills">
+              <Link href="/myskills">
                 <Box>
                   <TransparentCard>
                     <Flex align="center" justify={"center"} w="100%" h="100%">
@@ -261,36 +268,5 @@ function SliderThumbWithTooltip() {
         <SliderThumb />
       </Tooltip>
     </Slider>
-  );
-}
-
-function MusicPlayer() {
-  const url =
-    "https://www.youtube.com/watch?v=oRP-rsbv58s&ab_channel=PsychedelicUniverse";
-  const [timer, settimer] = useState();
-
-  useEffect(() => {
-    setTimeout(() => {
-      settimer(true);
-    }, 1500);
-  }, []);
-
-  return (
-    <TransparentCard padding="5px">
-      <Flex direction={"column"} h="100%" justify="center" textAlign={"center"}>
-        <HStack spacing={5} justify={"center"}></HStack>
-        {timer ? (
-          <ReactPlayer
-            style={{ borderRadius: "20px !important" }}
-            loop={true}
-            width={"100%"}
-            height="100%"
-            url={url}
-            playing={true}
-            controls={true}
-          />
-        ) : null}
-      </Flex>
-    </TransparentCard>
   );
 }

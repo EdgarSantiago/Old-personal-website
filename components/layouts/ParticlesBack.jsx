@@ -27,7 +27,7 @@ const ParticlesBack = () => {
             value: "#111111",
           },
           image:
-            "url('https://media0.giphy.com/media/zG8ZHVRYlJn1Cc26MK/giphy.gif?cid=ecf05e475rpvwtt1jaxarq5qwfgg6fjva64efrlci6fhhssz&rid=giphy.gif&ct=g')",
+            "url('https://media1.giphy.com/media/8NIo6jFS829H2/giphy.gif?cid=ecf05e47fa9t4m2rovfe0zxpn0bqa5jr6co274fakvdoilh3&rid=giphy.gif&ct=g')",
           position: "50% 50%",
           repeat: "no-repeat",
           size: "cover",
