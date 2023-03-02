@@ -199,7 +199,7 @@ export default function MySkills() {
                 Edgar Santiago
               </Heading>
 
-              <Heading fontSize="md" my={4} color="red.200">
+              <Heading fontSize="md" my={4} color="red.100">
                 Desenvolvedor Full Stack
               </Heading>
 
@@ -207,19 +207,24 @@ export default function MySkills() {
                 w={["100%", "90%", "70%", "70%", "50%"]}
                 textAlign="start"
                 fontSize="lg"
-                lineHeight={1.8}
-                color="white"
+                lineHeight={1.5}
+                color="#e4e2e2"
               >
                 Olá, seja bem-vindo(a) ao meu site! Sou formado em Ciência da
                 computação com uma ampla experiência em desenvolvimento web.
                 Minha paixão por computadores começou cedo, com apenas 7 anos de
                 idade, e desde então, tenho me dedicado a aprender tudo o que
-                posso sobre tecnologia. Hoje, sou especializado no uso de
-                TypeScript, Next.js e React.js para desenvolver soluções web
-                robustas e escaláveis. Além disso, tenho uma habilidade especial
-                para aprender novas linguagens rapidamente, o que me permite me
-                adaptar rapidamente a novos projetos e desafios. Também sou
-                experiente em utilizar Node.js para criar servidores eficientes.
+                posso sobre tecnologia.
+                <br />
+                <br />
+                Hoje, sou especializado no uso de TypeScript, Next.js e React.js
+                para desenvolver soluções web robustas e escaláveis. Além disso,
+                tenho uma habilidade especial para aprender novas linguagens
+                rapidamente, o que me permite me adaptar rapidamente a novos
+                projetos e desafios. Também sou experiente em utilizar Node.js
+                para criar servidores eficientes.
+                <br />
+                <br />
                 Se você está procurando um desenvolvedor altamente qualificado e
                 experiente, fique à vontade para entrar em contato comigo. Estou
                 ansioso para trabalhar com você e ajudar a trazer sua visão para
@@ -238,17 +243,16 @@ export default function MySkills() {
               Habilidades
             </Heading>
             <SimpleGrid
-              minH="100vh"
+              minH="80vh"
               mx="auto"
               w={["100%", "100%", "100%", "80%", "60%"]}
-              columns={[1, 1, 1, 2, 2]}
-              gap={"80px"}
+              columns={[1, 1, 1, 2, 3]}
+              gap={["80px", "70px", "70px", "60px", "40px"]}
               py={5}
               color="white"
             >
               {listSkills.map((skill, i) => (
                 <Box
-                  _hover={{ backgroundColor: "#dccccc43" }}
                   transition="ease-in-out 0.4s"
                   fontSize={["14px", "18px"]}
                   rounded="md"
@@ -257,12 +261,11 @@ export default function MySkills() {
                   key={i}
                   justifyContent="center"
                   alignItems="center"
-                  px={4}
-                  py={8}
+                  px={[4, 4, 4, 4, 0]}
+                  py={4}
                 >
-                  <Box>{skill.icon}</Box>
+                  <Box fontSize="30px">{skill.icon}</Box>
                   <Box>{skill.name}</Box>
-                  <Box>{skill.time}</Box>
                   <Slider aria-label="slider-ex-6" value={skill.value} w="40%">
                     <SliderMark
                       value={skill.value}
